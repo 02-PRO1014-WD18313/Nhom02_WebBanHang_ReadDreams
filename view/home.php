@@ -15,7 +15,7 @@
                     
                     echo '<div class="box_items ">
                     <div class="box_items_img">
-                <img src="'.$hinh.'" alt="" style="height: 500px;width:400px">
+                <img src="'.$hinh.'" alt="" style="height: 400px;width:100%;object-fit: cover;">
                 
              </div>
               <a class="item_name" href="'. $linksp .'">'.$ten.'</a>

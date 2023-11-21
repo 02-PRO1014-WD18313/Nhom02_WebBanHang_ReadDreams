@@ -5,7 +5,35 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
+ .formds_loai table{
+  width:100%;
+  border-collapse:collapse;
+      padding:20px;
+}
+.formds_loai table td {
+  padding:10px 20px;
+  border:1px #0b0b0b solid;
+  padding:10px;
+}
+
+ .items{
+  width:91%;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:25px;
+}
+.box_items{
+  border:1px solid #7e7e7e;
+  border-radius:10px;
+  text-align:center;
+  height:500px;
+  position:relative;
+  overflow:hidden;
+  margin-top: 15px;
+  background-color: #f8f9fa;
+}
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -647,7 +675,7 @@ pre code {
   padding-left: 0;
 }
 
-/* .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
 .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
 .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
@@ -657,23 +685,6 @@ pre code {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-} */
-.items{
-  width:1440px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr 1fr;
-  gap:25px;
-}
-.box_items{
-  border:1px solid #7e7e7e;
-  border-radius:10px;
-  text-align:center;
-  height:500px;
-  position:relative;
-  overflow:hidden;
-  margin-top: 15px;
-  background-color: #f8f9fa;
 }
 
 .col {
