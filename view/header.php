@@ -9,6 +9,8 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
+
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -155,16 +157,14 @@ Bạn có muốn chứng minh rằng bạn đã đúng về mọi thứ?</p>
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="img/_giao_ti_p_th_ng_minh_b_a_tr_c.png" alt=""  style="object-fit: cover;">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
+                        
                         <a href="" class="btn btn-primary">Shop Now</a>
                     </div>
                 </div>
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="img/anh-bia-1-cang-cam-tinh-cang-that-bai.png" alt="" style= "object-fit: cover;">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
+                      
                         <a href="" class="btn btn-primary">Shop Now</a>
                     </div>
                 </div>
