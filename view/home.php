@@ -55,10 +55,35 @@
     </div>
 </div>
 <!-- Offer End -->
+<h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span></h2>
 
+<div class="boxleft">
+        <div class="items">
+        <?php
+              $i=0;
+                foreach ($spnew as $sp){
+                    extract($sp);
+                    $hinh =  $img_path.$anh;
+                    
+                    $linksp="index.php?act=sanphamct&idsp=".$id;
+                    
+                    echo '<div class="box_items ">
+                    <div class="box_items_img">
+                <img src="'.$hinh.'" alt="" style="height: 400px;width:100%;object-fit: cover;">
+                
+             </div>
+              <a class="item_name" href="'. $linksp .'">'.$ten.'</a>
+              <p class="price">'.$gia_ban.' đ</p>
+              
+           </div>';
+                    $i+=1;
+                }
+              ?>
+        </div>
+</div>
 
 <!-- Products Start -->
-<div class="container-fluid pt-5 pb-3">
+<!-- <div class="container-fluid pt-5 pb-3">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span></h2>
     <div class="row px-xl-5">
         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
@@ -278,7 +303,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Products End -->
 
 
