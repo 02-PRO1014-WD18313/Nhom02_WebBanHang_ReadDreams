@@ -46,13 +46,26 @@
                     <div class="navbar-nav w-100">
                         <div class="nav-item dropdown dropright">
                             
-                        <a href="" class="nav-item nav-link">Văn Học</a>
+                        <!-- <a href="" class="nav-item nav-link">Văn Học</a>
                         <a href="" class="nav-item nav-link">Kinh Tế</a>
                         <a href="" class="nav-item nav-link">Tâm lí - Kĩ năng sống</a>
                         <a href="" class="nav-item nav-link">Nuôi dạy con</a>
                         <a href="" class="nav-item nav-link">Sách thiếu nhi</a>
                         <a href="" class="nav-item nav-link">Giáo khoa - Tham khảo</a>
-                        <a href="" class="nav-item nav-link">Sách học ngoại ngữ</a>
+                        <a href="" class="nav-item nav-link">Sách học ngoại ngữ</a> -->
+                        <?php
+                       
+         
+                        $dsdm = loadall_danhmuc();
+                        
+                                foreach ($dsdm as $dm){
+                                    extract($dm);
+                                    $linkdm="index.php?act=sanpham&iddm=".$id;
+                                    echo '<li>
+                                            <a href="'.$linkdm.'">'.$ten.'</a>
+                                            </li>';
+                                }
+                            ?>
                     </div>
                 </nav>
             </div>
