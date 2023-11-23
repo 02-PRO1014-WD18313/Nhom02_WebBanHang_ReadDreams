@@ -56,7 +56,7 @@
 </div>
 <!-- Offer End -->
 <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span></h2>
-
+<h1>alo</h1>
 <div class="boxleft">
         <div class="items">
         <?php
