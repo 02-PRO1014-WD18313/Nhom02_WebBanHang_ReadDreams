@@ -1,4 +1,7 @@
-
+<?php
+include "../model/danhmuc.php";
+$dsdm = loadall_danhmuc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -132,13 +135,25 @@
                         <a href="" class="nav-item nav-link">Blazers</a>
                         <a href="" class="nav-item nav-link">Jackets</a>
                         <a href="" class="nav-item nav-link">Shoes</a> -->
-                        <a href="" class="nav-item nav-link">Văn Học</a>
+
+                        <!-- <a href="" class="nav-item nav-link">Văn Học</a>
                         <a href="" class="nav-item nav-link">Kinh Tế</a>
                         <a href="" class="nav-item nav-link">Tâm lí - Kĩ năng sống</a>
                         <a href="" class="nav-item nav-link">Nuôi dạy con</a>
                         <a href="" class="nav-item nav-link">Sách thiếu nhi</a>
                         <a href="" class="nav-item nav-link">Giáo khoa - Tham khảo</a>
-                        <a href="" class="nav-item nav-link">Sách học ngoại ngữ</a>
+                        <a href="" class="nav-item nav-link">Sách học ngoại ngữ</a> -->
+                        <?php
+                      foreach($dsdm as $dm){
+                          extract($dm);
+                          $linkdm="index.php?act=sanpham&iddm=".$id;
+                          echo '<li><a href="'.$linkdm.'">'.$ten.' </a></li>';
+
+                      }
+                      ?>
+                        <?php
+                        
+                        ?>
                     </div>
                 </nav>
             </div>

@@ -4,8 +4,8 @@ function loadall_sanpham_home(){
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }
-function insert_sanpham($tensp,$giasp, $hinh, $mota, $iddm){
-    $sql = "INSERT INTO `sanpham`(`ten`, `id_danh_muc`, `gia_niem_yet`, `gia_ban`, `so_luong`, `anh`, `mo_ta`) VALUES (`$ten`, `$id_danh_muc`, `$gia_niem_yet`, `$gia_ban`, `$so_luong`, `$anh`, `$mo_ta`);";
+function insert_sanpham($ten, $id_danh_muc, $gia_niem_yet,$gia_ban, $so_luong, $anh, $mo_ta){
+    $sql = "INSERT INTO `sanpham`(`ten`, `id_danh_muc`, `gia_niem_yet`, `gia_ban`, `so_luong`, `anh`, `mo_ta`) VALUES ('$ten', '$id_danh_muc', '$gia_niem_yet', '$gia_ban', '$so_luong', '$anh', '$mo_ta');";
     pdo_execute($sql);
 }
 function loadall_sanpham($keyw="",$iddm=0){
@@ -21,3 +21,28 @@ function loadall_sanpham($keyw="",$iddm=0){
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }
+function loadone_sanpham($id){
+    $sql = "select * from sanpham where id = ".$id;
+    $result = pdo_query_one($sql);
+    return $result;
+}
+function update_sanpham($id,$ten, $id_danh_muc, $gia_niem_yet,$gia_ban, $so_luong, $anh, $mo_ta){
+    if($anh!=""){
+        // $sql="update sanpham set iddm='".$iddm."',name='".$tensp."',price='".$giasp."',mota='".$mota."',img='".$hinh."' where id=".$id;
+        $sql=  "UPDATE `sanpham` SET `ten` = '{$ten}', `id_danh_muc` = '{$id_danh_muc}', `gia_niem_yet` = '{$gia_niem_yet}',`gia_ban` = '{$gia_ban}', `so_luong` = '{$so_luong}', `anh` = '{$anh}', `mo_ta` = '{$mo_ta}' WHERE `sanpham`.`id` = $id";
+    }else{
+        //  $sql="update sanpham set iddm='".$iddm."',name='".$tensp."',price='".$giasp."',mota='".$mota."' where id=".$id;
+        $sql=  "UPDATE `sanpham` SET `ten` = '{$ten}', `id_danh_muc` = '{$id_danh_muc}', `gia_niem_yet` = '{$gia_niem_yet}',`gia_ban` = '{$gia_ban}', `so_luong` = '{$so_luong}',  `mo_ta` = '{$mo_ta}' WHERE `sanpham`.`id` = $id";
+    }
+    pdo_execute($sql);
+}
+function hard_delete($id){
+    $sql = "DELETE FROM sanpham WHERE id=" .$id;
+    pdo_execute($sql);
+}
+
+// cÂU TRUY VẤN XÓA MỀM
+// function soft_delete($id){
+//     $sql = "UPDATE `sanpham` SET `trangthai` = 1 WHERE `sanpham`.`id` = $id";
+//     pdo_execute($sql);
+// }

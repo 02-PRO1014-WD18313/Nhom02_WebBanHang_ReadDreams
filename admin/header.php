@@ -78,6 +78,7 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
+                           
                             <a href="shop.html" class="nav-item nav-link">Cửa hàng</a>
                             <a href="detail.html" class="nav-item nav-link">Thông tin</a>
                             <div class="nav-item dropdown">
