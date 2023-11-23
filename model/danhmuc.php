@@ -1,3 +1,4 @@
+
 <?php
 function loadall_danhmuc(){
     $sql="select * from danhmuc order by id desc";
@@ -29,4 +30,5 @@ function update_danhmuc($id,$ten){
         $sql=  "UPDATE `danhmuc` SET `ten` = '{$ten}' WHERE `danhmuc`.`id` = $id";
     
     pdo_execute($sql);
+
 }
