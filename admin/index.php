@@ -1,3 +1,4 @@
+
 <?php
 include "../model/pdo.php";
 include "../model/danhmuc.php";
@@ -136,5 +137,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
     }
 
 include "footer.php";
+
 
 ?>

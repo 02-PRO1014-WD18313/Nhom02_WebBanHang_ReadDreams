@@ -1,3 +1,4 @@
+
 <?php
 function loadall_sanpham_home(){
     $sql="select * from sanpham where 1 order by id desc limit 0,8";
@@ -46,3 +47,4 @@ function hard_delete($id){
 //     $sql = "UPDATE `sanpham` SET `trangthai` = 1 WHERE `sanpham`.`id` = $id";
 //     pdo_execute($sql);
 // }
+
