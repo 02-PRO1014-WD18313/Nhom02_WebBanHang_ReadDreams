@@ -62,7 +62,7 @@
                                     extract($dm);
                                     $linkdm="index.php?act=sanpham&iddm=".$id;
                                     echo '<li>
-                                            <a href="'.$linkdm.'">'.$ten.'</a>
+                                            <a class="nav-item nav-link" href="'.$linkdm.'">'.$ten.'</a>
                                             </li>';
                                 }
                             ?>
