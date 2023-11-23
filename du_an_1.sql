@@ -2,10 +2,12 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 22, 2023 lúc 02:14 PM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+
+-- Host: 127.0.0.1
+-- Generation Time: Nov 20, 2023 at 01:05 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +20,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `du_an_1`
+
+
+-- Database: `du_an_1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `danhmuc`
+-- Table structure for table `danhmuc`
+
 --
 
 CREATE TABLE `danhmuc` (
@@ -33,7 +38,9 @@ CREATE TABLE `danhmuc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `danhmuc`
+
+-- Dumping data for table `danhmuc`
+
 --
 
 INSERT INTO `danhmuc` (`id`, `ten`) VALUES
@@ -48,7 +55,9 @@ INSERT INTO `danhmuc` (`id`, `ten`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sanpham`
+
+-- Table structure for table `sanpham`
+
 --
 
 CREATE TABLE `sanpham` (
@@ -63,13 +72,16 @@ CREATE TABLE `sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `sanpham`
+
+-- Dumping data for table `sanpham`
+
 --
 
 INSERT INTO `sanpham` (`id`, `ten`, `id_danh_muc`, `gia_niem_yet`, `gia_ban`, `so_luong`, `anh`, `mo_ta`) VALUES
 (1, 'Conan', 1, 100000, 50000, 100, '713a5a459c93379d57cc7f24c038b153.jpg', 'không có gì cả'),
 (2, 'Doraemon', 2, 100000, 50000, 100, 'download.jpg', 'không có'),
 (3, 'Shin', 3, 100000, 50000, 100, 'download (1).jpg', 'ko');
+
 
 -- --------------------------------------------------------
 
@@ -100,18 +112,22 @@ INSERT INTO `taikhoan` (`id`, `user`, `pass`, `email`, `tel`, `role`) VALUES
 
 --
 -- Chỉ mục cho bảng `danhmuc`
+
 --
 ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `sanpham`
+
+-- Indexes for table `sanpham`
+
 --
 ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_san_pham_danh_muc` (`id_danh_muc`);
 
 --
+
 -- Chỉ mục cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
@@ -123,17 +139,21 @@ ALTER TABLE `taikhoan`
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
+
 --
 ALTER TABLE `danhmuc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `sanpham`
+
+-- AUTO_INCREMENT for table `sanpham`
+
 --
 ALTER TABLE `sanpham`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
@@ -145,6 +165,7 @@ ALTER TABLE `taikhoan`
 
 --
 -- Các ràng buộc cho bảng `sanpham`
+
 --
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `fk_san_pham_danh_muc` FOREIGN KEY (`id_danh_muc`) REFERENCES `danhmuc` (`id`);

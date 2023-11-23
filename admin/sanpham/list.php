@@ -1,3 +1,4 @@
+
 <style>
     table th{
   padding: 15px;
@@ -12,7 +13,7 @@
         <form action="#" method="POST">
             <div class="row2 mb10 formds_loai">
                 <form action="index.php?act=listsp" method="post">
-                    <input type="text" name="keyw" placeholder="Tìm kiếm...">
+                   
                     <select name="iddm" id="">
                         <option value="0" selected>Tất cả</option>
                         <?php
@@ -57,13 +58,15 @@
                             <td>' . $so_luong . '</td>
                             <td>
                                 <a href="' . $suasp . '"><input type="button" value="Sửa"> </a>  
-                                <a href="' . $hard_delete .'"><input type ="button" value="Xóa cứng" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')"></a>
-                                <a href="' . $soft_delete .'"><input type ="button" value="Xóa mềm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')"></a>
+                                <a href="' . $hard_delete .'"><input type ="button" value="Xóa " onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')"></a>
+                                
                             </td>
                     </tr>';
             
                     }
+                    //                     <a href="' . $soft_delete .'"><input type ="button" value="Xóa mềm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')"></a>
                     ?>
+
                 </table>
             </div>
             <div class="row mb10 ">
@@ -74,6 +77,7 @@
         </form>
     </div>
 </div>
+
 
 
 

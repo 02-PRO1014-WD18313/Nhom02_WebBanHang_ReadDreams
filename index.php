@@ -1,3 +1,4 @@
+
 <?php
 ob_start();
  include "model/pdo.php";
@@ -100,5 +101,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
            
         
 include "view/footer.php";
+
 
 ?>
