@@ -118,14 +118,14 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
             case "updatedanhmuc":
                             if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                                
-                                $ten=$_POST['ten'];
+                                $ten=$_POST['tendanhmuc'];
                                 $id=$_POST['id'];
                                
                                 update_danhmuc($id,$ten);
                                 
                             }
                             include "danhmuc/update.php";
-                            include "danhmuc/list.php";
+                            
                             break;      
             
 
