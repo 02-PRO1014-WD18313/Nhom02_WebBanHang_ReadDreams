@@ -10,7 +10,7 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-
+    
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -25,6 +25,8 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -46,14 +48,26 @@
                     <div class="navbar-nav w-100">
                         <div class="nav-item dropdown dropright">
                             
-                        <a href="" class="nav-item nav-link">Văn Học</a>
+                        <!-- <a href="" class="nav-item nav-link">Văn Học</a>
                         <a href="" class="nav-item nav-link">Kinh Tế</a>
                         <a href="" class="nav-item nav-link">Tâm lí - Kĩ năng sống</a>
                         <a href="" class="nav-item nav-link">Nuôi dạy con</a>
                         <a href="" class="nav-item nav-link">Sách thiếu nhi</a>
                         <a href="" class="nav-item nav-link">Giáo khoa - Tham khảo</a>
-                        <a href="" class="nav-item nav-link">Sách học ngoại ngữ</a>
-                        <h1>nha</h1>
+                        <a href="" class="nav-item nav-link">Sách học ngoại ngữ</a> -->
+                        <?php
+                       
+         
+                        $dsdm = loadall_danhmuc();
+                        
+                                foreach ($dsdm as $dm){
+                                    extract($dm);
+                                    $linkdm="index.php?act=sanpham&iddm=".$id;
+                                    echo '<li>
+                                            <a class="nav-item nav-link" href="'.$linkdm.'">'.$ten.'</a>
+                                            </li>';
+                                }
+                            ?>
                     </div>
                 </nav>
             </div>
@@ -63,6 +77,7 @@
                         <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
                         <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
                     </a>
+                    <h1>abc</h1>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
