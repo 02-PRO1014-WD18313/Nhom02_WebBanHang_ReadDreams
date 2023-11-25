@@ -31,7 +31,7 @@
                     $xoasp_td='';
                 }
                 echo '<tr>
-                            <td><img src="'.$hinh.'"style="height: 90px;width:70%;object-fit: cover; "></td>
+                            <td><img src="'.$hinh.'"style="height: 120px;width:100%;object-fit: cover; "></td>
                             <td>'.$cart[1].'</td>
                             <td>'.$cart[3].'</td>
                             <td>'.$cart[4].'</td>
