@@ -1,15 +1,19 @@
 
 <?php
+session_start();
+if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
 ob_start();
  include "model/pdo.php";
  include "model/sanpham.php";
  include "model/danhmuc.php";
  include "model/taikhoan.php";
+ include "model/cart.php";
 
 
  include "global.php";
 
 include "view/header.php";
+
 
 $spnew = loadall_sanpham_home();
 $dsdm = loadall_danhmuc();
@@ -90,8 +94,36 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     }
                     include "view/dangnhap.php";
                     break;
-    
+
+                    case 'addtocart':
+                        if(isset($_POST['addtocart'])&&($_POST['addtocart'])){
+                            $id=$_POST['id'];
+                            $name=$_POST['name'];
+                            $img=$_POST['img'];
+                            $price=$_POST['price'];
+                            $soluong=1;
+                            $ttien=$soluong * $price;
+                            $spadd=[$id,$name,$img,$price,$soluong,$ttien];
+                            array_push($_SESSION['mycart'],$spadd);
+                        }
+                        insert_cart($img, $name, $price, $soluong);
+                        include "view/cart/viewcart.php";
+                        break;
+
+                        case 'delcart':
+                            if(isset($_GET['idcart'])){
+                                array_splice($_SESSION['mycart'],$_GET['idcart'],1);
+                            } else {
+                                $_SESSION['mycart']=[];
+                            }
+                            include "view/cart/viewcart.php";
+                            break;
+                        
             }
+
+
+
+
             ob_end_flush();
 
             
