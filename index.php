@@ -1,15 +1,19 @@
 
 <?php
+session_start();
+if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
 ob_start();
  include "model/pdo.php";
  include "model/sanpham.php";
  include "model/danhmuc.php";
  include "model/taikhoan.php";
+ include "model/cart.php";
 
 
  include "global.php";
 
 include "view/header.php";
+
 
 $spnew = loadall_sanpham_home();
 $dsdm = loadall_danhmuc();
@@ -17,21 +21,7 @@ $dsdm = loadall_danhmuc();
 if(isset($_GET['act'])&&($_GET['act']!="")){
     $act=$_GET['act'];
     switch($act){
-        // case "sanpham":
-        //     if(isset($_POST['keyword']) &&  $_POST['keyword'] != 0 ){
-        //         $kyw = $_POST['keyword'];
-        //     }else{
-        //         $kyw = "";
-        //     }
-        //     if(isset($_GET['iddm']) && ($_GET['iddm']>0)){
-        //         $iddm=$_GET['iddm'];
-        //     }else{
-        //         $iddm=0;
-        //     }
-        //     $dssp=loadall_sanpham($kyw,$iddm);
-        //     $tendm= load_ten_dm($iddm);
-        //     include "view/sanpham.php";
-        //     break;
+        
 
         case 'sanpham':
             if(isset($_POST['kyw']) && !empty($_POST['kyw'])){
@@ -79,8 +69,36 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     }
                     include "view/dangnhap.php";
                     break;
-    
+
+                    case 'addtocart':
+                        if(isset($_POST['addtocart'])&&($_POST['addtocart'])){
+                            $id=$_POST['id'];
+                            $name=$_POST['name'];
+                            $img=$_POST['img'];
+                            $price=$_POST['price'];
+                            $soluong=1;
+                            $ttien=$soluong * $price;
+                            $spadd=[$id,$name,$img,$price,$soluong,$ttien];
+                            array_push($_SESSION['mycart'],$spadd);
+                        }
+                        insert_cart($img, $name, $price, $soluong);
+                        include "view/cart/viewcart.php";
+                        break;
+
+                        case 'delcart':
+                            if(isset($_GET['idcart'])){
+                                array_splice($_SESSION['mycart'],$_GET['idcart'],1);
+                            } else {
+                                $_SESSION['mycart']=[];
+                            }
+                            include "view/cart/viewcart.php";
+                            break;
+                        
             }
+
+
+
+
             ob_end_flush();
 
             
