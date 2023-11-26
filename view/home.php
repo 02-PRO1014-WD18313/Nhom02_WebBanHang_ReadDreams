@@ -15,7 +15,7 @@
                             echo '<div class="boxsp '.$mr.'">
                                     <div class="row img" style="text-align: center;"><a href="'.$linksp.'"><img src="'.$hinh.'" style="height: 400px;width:100%;object-fit: cover;"></a></div>
                                     <p>'.$gia_ban.'</p>
-                                    <a href="'.$linksp.'">'.$ten.'</a>
+                                    <a href="'. $linksp.'">'.$ten.'</a>
                                     <div class="row btnaddtocart">
                                     <form action="index.php?act=addtocart" method="post">
                                         <input type="hidden" name="id" value="'.$id.'">

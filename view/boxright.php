@@ -1,6 +1,6 @@
-<div class="boxleft">
+<!-- <div class="boxleft">
         <div class="items">
-        <?php
+        <php
               $i=0;
                 foreach ($spnew as $sp){
                     extract($sp);
@@ -22,6 +22,6 @@
               ?>
         </div>
 </div>
-
+ -->
 
 
