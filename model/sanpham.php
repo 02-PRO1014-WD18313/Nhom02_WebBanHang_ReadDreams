@@ -23,13 +23,18 @@ function loadall_sanpham($keyw="",$iddm=0){
     return  $listsanpham;
 }
 function loadone_sanpham($id){
-    $sql = "select * from sanpham where id = ".$id;
+    $sql = "select * from sanpham where id=".$id;
     $result = pdo_query_one($sql);
     return $result;
 }
+function loadone_sanpham_cungloai($id,$id_danh_muc){
+    $sql = "select * from sanpham where id_danh_muc=".$id_danh_muc." AND id <> ".$id; 
+    $listsanpham=pdo_query($sql);
+    return  $listsanpham;
+}
 function update_sanpham($id,$ten, $id_danh_muc, $gia_niem_yet,$gia_ban, $so_luong, $anh, $mo_ta){
     if($anh!=""){
-        // $sql="update sanpham set iddm='".$iddm."',name='".$tensp."',price='".$giasp."',mota='".$mota."',img='".$hinh."' where id=".$id;
+        //$sql="update sanpham set iddm='".$iddm."',name='".$tensp."',price='".$giasp."',mota='".$mota."',img='".$hinh."' where id=".$id;
         $sql=  "UPDATE `sanpham` SET `ten` = '{$ten}', `id_danh_muc` = '{$id_danh_muc}', `gia_niem_yet` = '{$gia_niem_yet}',`gia_ban` = '{$gia_ban}', `so_luong` = '{$so_luong}', `anh` = '{$anh}', `mo_ta` = '{$mo_ta}' WHERE `sanpham`.`id` = $id";
     }else{
         //  $sql="update sanpham set iddm='".$iddm."',name='".$tensp."',price='".$giasp."',mota='".$mota."' where id=".$id;
