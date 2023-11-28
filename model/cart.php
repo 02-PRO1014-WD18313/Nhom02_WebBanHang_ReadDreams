@@ -58,7 +58,7 @@
 
 
     function insert_cart( $img, $name, $price, $soluong){
-        $sql="insert into cart(img, name, price, soluong) values( '$img', '$name', '$price', '$soluong' )";
+        $sql="insert into cart( img, name, price, soluong) values( '$img', '$name', '$price', '$soluong' )";
         return pdo_execute($sql);
     }
 

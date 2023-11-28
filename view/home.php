@@ -3,7 +3,7 @@
         <div class="items">
         <?php
                         $i=0;
-                        foreach ($spnew as $sp){
+                        foreach ($spnew as $sp):
                             extract($sp);
                             $linksp="index.php?act=sanphamct&idsp=".$id;
                             $hinh=$img_path.$anh;
@@ -12,24 +12,32 @@
                             } else {
                                 $mr="mr";
                             }
-                            echo '<div class="boxsp '.$mr.'">
-                                    <div class="row img" style="text-align: center;"><a href="'.$linksp.'"><img src="'.$hinh.'" style="height: 400px;width:100%;object-fit: cover;"></a></div>
-                                    <p>'.$gia_ban.'</p>
-                                    <a href="'.$linksp.'">'.$ten.'</a>
+                            ?>
+                            <div class="box_items <?php echo $mr ?>">
+                            <div class="boxsp '.$mr.'">
+                                    <div class="row img" style="text-align: center;"><a href="'.$linksp.'"><img src=<?= $hinh ?> style="height: 400px;width:100%;object-fit: cover;"></a></div>
+                                    <p><?= $gia_ban ?></p>
+                                    <a href="<?php echo $giaban . $ten; ?>"><?php echo $ten; ?></a>
+
                                     <div class="row btnaddtocart">
                                     <form action="index.php?act=addtocart" method="post">
-                                        <input type="hidden" name="id" value="'.$id.'">
-                                        <input type="hidden" name="name" value="'.$ten.'">
-                                        <input type="hidden" name="img" value="'.$hinh.'">
-                                        <input type="hidden" name="price" value="'.$gia_ban.'">
-                                        <input type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                        <input type="hidden" name="id" value=<?= $id ?>>
+                                        <input type="hidden" name="name" value=<?= $ten ?>>
+                                        <input type="hidden" name="img" value=<?= $hinh ?>>
+                                        <input type="hidden" name="price" value=<?= $gia_ban ?>>
+                                        <button data-id="<?= $id ?>" class="btnCart" onclick="addToCart(<?= $id ?>, '<?= $name ?>', <?= $price ?>)">Thêm vào giỏ hàng</button>
+                                        
                                     </form>
                                     </div>
-                                  </div>' ;
-                            $i+=1;
-                        }
+                                  </div>'
+                   
+                </div>
+            <?php
+                $i += 1;
+                endforeach;
+            ?>
         
-              ?>
+              
         </div>
 </div>
 
@@ -86,6 +94,31 @@
               ?>
         </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    let totalProduct = document.getElementById('totalProduct');
+    function addToCart(productId, productName, productPrice) {
+        // console.log(productId, productName, productPrice);
+        // Sử dụng jQuery
+        $.ajax({
+            type: 'POST',
+            // Đường dẫ tới tệp PHP xử lý dữ liệu
+            url: './view/addToCart.php',
+            data: {
+                id: productId,
+                name: productName,
+                price: productPrice
+            },
+            success: function(response) {
+                totalProduct.innerText = response;
+                alert('Bạn đã thêm sản phẩm vào giỏ hàng thành công!')
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+</script>
 
 <!-- Products Start -->
 <!-- <div class="container-fluid pt-5 pb-3">

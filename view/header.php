@@ -90,7 +90,8 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Giỏ hàng<i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Xem giỏ</a>
+                                    <a href="index.php?act=listCart" class="dropdown-item">Xem giỏ</a>
+                                    <span id="totalProduct"><?= !empty($_SESSION['cart']) ? count($_SESSION['cart']) : 0  ?></span>
                                     <a href="checkout.html" class="dropdown-item">Thanh toán</a>
                                 </div>
                             </div>
