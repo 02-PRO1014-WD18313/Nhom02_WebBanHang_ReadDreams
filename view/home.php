@@ -81,9 +81,8 @@
                     $linksp="index.php?act=sanphamct&idsp=".$id;
                     
                     echo '<div class="box_items ">
-                    <div class="box_items_img">
+                    <div class="box_items_img"> 
                 <img src="'.$hinh.'" alt="" style="height: 400px;width:100%;object-fit: cover;">
-                
              </div>
               <a class="item_name" href="'. $linksp .'">'.$ten.'</a>
               <p class="price">'.$gia_ban.' đ</p>
