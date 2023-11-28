@@ -32,3 +32,7 @@ function update_danhmuc($id,$ten){
     pdo_execute($sql);
 
 }
+function delete_danhmuc($id){
+    $sql = "DELETE FROM danhmuc WHERE id=" .$id;
+    pdo_execute($sql);
+}

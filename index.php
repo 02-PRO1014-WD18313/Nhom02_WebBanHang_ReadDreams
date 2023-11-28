@@ -77,6 +77,14 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                 }
                 include "view/dangky.php";
                 break;
+                case "thoat":
+                    dangxuat();
+                    include "view/home.php";
+                    break;
+
+         
+
+                    
 
 
                 case 'dangnhap':

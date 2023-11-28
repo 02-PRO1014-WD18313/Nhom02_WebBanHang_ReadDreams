@@ -16,7 +16,7 @@ function loadall_sanpham($keyw="",$iddm=0){
         $sql.=" and name like '%".$keyw."%'";
     }
     if($iddm>0){
-        $sql.=" and iddm ='".$iddm."'";
+        $sql.=" and id_danh_muc ='".$iddm."'";
     }
     $sql.=" order by id desc";
     $listsanpham=pdo_query($sql);

@@ -83,9 +83,9 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
-                            <a href="shop.html" class="nav-item nav-link">Cửa hàng</a>
-                            <a href="detail.html" class="nav-item nav-link">Thông tin</a>
+                            <a href="index.php" class="nav-item nav-link active">Trang chủ</a>
+                            <!-- <a href="shop.html" class="nav-item nav-link">Cửa hàng</a> -->
+                            <!-- <a href="detail.html" class="nav-item nav-link">Thông tin</a> -->
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Giỏ hàng<i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
@@ -93,7 +93,7 @@
                                     <a href="checkout.html" class="dropdown-item">Thanh toán</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                            <!-- <a href="contact.html" class="nav-item nav-link">Liên hệ</a> -->
                     
                             <a href="index.php?act=dangnhap" class="nav-item nav-link">Đăng nhập</a>
                         </div>

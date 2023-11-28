@@ -33,7 +33,11 @@ function delete_taikhoan($id){
     pdo_execute($sql);
 }
 
-
+function dangxuat() {
+    if (isset($_SESSION['user'])) {
+        unset($_SESSION['user']);
+    }
+}
     
 
 

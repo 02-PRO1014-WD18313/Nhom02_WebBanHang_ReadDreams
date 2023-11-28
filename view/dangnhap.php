@@ -23,7 +23,7 @@
                                 <input type="text" name="user"> 
                             </div>
                             <div class="row mb10">
-                                <li>
+                                <!-- <li>
                                     <a href="index.php?act=mybill">Đơn hàng của tôi</a>
                                 </li>
                                 <li>
@@ -31,11 +31,11 @@
                                 </li>
                                 <li>
                                     <a href="index.php?act=edit_taikhoan">Cập nhật tài khoản</a>
-                                </li>
+                                </li> -->
 
                                 <?php if($role==1){ ?>
                                 <li>
-                                    <a href="admin/index.php">Đăng nhập Admin</a>
+                                    <a href="admin/index.php?act=listsp">Đăng nhập Admin</a>
                                 </li>
                                 <?php } ?>
 
