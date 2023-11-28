@@ -27,6 +27,11 @@ function loadone_sanpham($id){
     $result = pdo_query_one($sql);
     return $result;
 }
+function load_sanpham_cungloai($id){
+    $sql = "select * from sanpham where id <> =".$id;
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;    
+}
 function loadone_sanpham_cungloai($id,$id_danh_muc){
     $sql = "select * from sanpham where id_danh_muc=".$id_danh_muc." AND id <> ".$id; 
     $listsanpham=pdo_query($sql);
@@ -52,4 +57,3 @@ function hard_delete($id){
 //     $sql = "UPDATE `sanpham` SET `trangthai` = 1 WHERE `sanpham`.`id` = $id";
 //     pdo_execute($sql);
 // }
-

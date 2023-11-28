@@ -21,12 +21,15 @@ $dsdm = loadall_danhmuc();
 if(isset($_GET['act'])&&($_GET['act']!="")){
     $act=$_GET['act'];
     switch($act){
-        case "sanphamct":  
+        case "sanphamct": 
             if (isset($_GET['idsp'])&&($_GET['idsp']>0)){
                 // $id=$_GET['idsp'];
                 $onesp=loadone_sanpham($_GET['idsp']);
                 $sp_cung_loai = loadone_sanpham_cungloai($_GET['idsp'], $onesp['id_danh_muc']);
                 // $onesp=loadone_sanpham($id);
+                // $iddm=$spchitiet['iddm'];
+                // $splienquan=load_sanpham_lienquan($iddm,$id,4);
+                
                 include "view/sanphamct.php";
             }else{
                 include "view/home.php";
@@ -65,7 +68,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
             include "view/sanpham.php";
             break;
 
-        
             case 'dangky':
                 if(isset($_POST['dangky'])&&($_POST['dangky'])){
                     $email=$_POST['email'];
@@ -85,7 +87,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
          
 
                     
-
 
                 case 'dangnhap':
                     if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
@@ -125,33 +126,13 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                                 $_SESSION['mycart']=[];
                             }
                             include "view/cart/viewcart.php";
-                            break;
-                        
+                            break;             
             }
-
-
-
-
             ob_end_flush();
-
-            
-            
-
-            
-            
-
-
-        
         }else{
             include "view/home.php";
-        } 
-        
-
-            
+        }             
                
-           
-        
 include "view/footer.php";
-
 
 ?>
