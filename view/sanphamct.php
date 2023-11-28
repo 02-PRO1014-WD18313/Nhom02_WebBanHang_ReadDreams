@@ -73,14 +73,15 @@
                             <img class="w-100 h-100" src="upload/" alt="Image">
                         </div> -->
                     </div>
-                    <!-- <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+                    <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
                         <i class="fa fa-2x fa-angle-left text-dark"></i>
                     </a>
                     <a class="carousel-control-next" href="#product-carousel" data-slide="next">
                         <i class="fa fa-2x fa-angle-right text-dark"></i>
-                    </a> -->
+                    </a>
                 </div>
             </div>
+
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
 
@@ -300,24 +301,34 @@
             </div>
         </div>
     </div> -->
-    <!-- Shop Detail End -->  
-    <div class="container-fluid py-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">SẢN PHẨM LIÊN QUAN</span></h2> 
+    <!-- Shop Detail End -->
+    <!-- <div class="container-fluid py-5"> -->
+    
+    <!-- <div class="container-fluid py-5"> -->
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">SẢN PHẨM LIÊN QUAN</span></h2>
         <div class="row px-xl-5">
-            <div class="col">
-                <div class="owl-carousel related-carousel">
+            <div class="col">   
+                <!-- <div class="owl-carousel related-carousel"> -->
                     <div class="product-item bg-light">
-                        <div class="product-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="<?=$anh?>" alt="">
+                        <!-- <div class="product-img position-relative overflow-hidden"> -->
+                            <!-- <img class="img-fluid w-100" src="upload/untitled-2_44.jpg" alt=""> -->
                         <?php 
                             foreach($sp_cung_loai as $sp_cung_loai){
                             extract($sp_cung_loai);
                             $linksp="index.php?act=sanphamct&idsp=".$id;
                             echo'<li><a href="'.$linksp.'">'.$ten.'</a><li>';
-                            } 
-                        ?>    
+                            }
+                            $anh = $img_path.$anh;
+                            echo "<img src='$anh' class=".'w-50 h-50"'." width='50'><br>";                                           
+                        ?> 
+                            <!-- <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                            </div>  -->
                         </div>
-                        <div class="text-center py-4">
+                        <!-- <div class="text-center py-4">
                             <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
@@ -330,9 +341,10 @@
                                 <small class="fa fa-star text-primary mr-1"></small>
                                 <small>(99)</small>
                             </div>
-                        </div>
+                            
+                        </div> -->
                     </div>
-                    <div class="product-item bg-light">
+                    <!-- <div class="product-item bg-light">
                         <div class="product-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="upload/image_217480.jpg" alt="">
                             <div class="product-action">
@@ -356,8 +368,231 @@
                                 <small>(99)</small>
                             </div>
                         </div>
+                    </div> -->
+                    <!-- <div class="product-item bg-light">
+                        <div class="product-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="upload/vang_trang_mau.jpg" alt="">
+                            <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small>(99)</small>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="product-item bg-light">
+                        <div class="product-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="upload/600ra-bo-suoi---bm_1.jpg" alt="">
+                            <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4"> -->
+                            <!-- <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small>(99)</small>
+                            </div> -->
+                        </div>
                     </div>
-                    
+                    <!-- <div class="product-item bg-light">
+                         <div class="product-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
+                            <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                            </div>
+                        </div> -->
+                        <!-- <div class="text-center py-4">
+                            <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small>(99)</small>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+
+
+        <!-- <div class="container-fluid py-5">
+            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">SẢN PHẨM LIÊN QUAN</span></h2>
+            <div class="row px-xl-5">
+                <div class="col">
+                    <div class="owl-carousel related-carousel">
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                            <php 
+                                foreach($sp_cung_loai as $sp_cung_loai){
+                                extract($sp_cung_loai,);
+                                $linksp="index.php?act=sanphamct&idsp=".$id;
+                                echo'<li><a href="'.$linksp.'">'.$ten.'</a><li>';
+                                }
+                            ?> 
+                                <div class="product-action">
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                                </div> 
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small>(99)</small>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="upload/image_217480.jpg" alt="">
+                                <div class="product-action">
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div> 
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small>(99)</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="upload/vang_trang_mau.jpg" alt="">
+                                <div class="product-action">
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small>(99)</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="upload/600ra-bo-suoi---bm_1.jpg" alt="">
+                                <div class="product-action">
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small>(99)</small>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
+                                <div class="product-action">
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small>(99)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  -->
 
 
     <!-- Back to Top -->
@@ -402,7 +637,7 @@
         <div class="boxcontent">
         </div>
     </div>
-    <div class="box mb ">
+    <div class="box mb ">m đ
         <div class="boxtitle">SẢN PHẨM CÙNG LOẠI</div>
         <div class="boxcontent">
                 <php 
