@@ -14,6 +14,15 @@
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+    <style>
+    #totalProduct {
+      color: #fff;
+      background-color: red;
+      font-size: 12px;
+      padding: 5px;
+      border-radius: 50%;
+    }
+  </style>
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -91,10 +100,11 @@
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Giỏ hàng<i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
                                     <a href="index.php?act=listCart" class="dropdown-item">Xem giỏ</a>
-                                    <span id="totalProduct"><?= !empty($_SESSION['cart']) ? count($_SESSION['cart']) : 0  ?></span>
-                                    <a href="checkout.html" class="dropdown-item">Thanh toán</a>
+                                    <span id="totalProduct"><?= !empty($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?></span>
+                                    <a href="index.php?act=order" class="dropdown-item">Thanh toán</a>
                                 </div>
                             </div>
+                            
                             <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
                     
                             <a href="index.php?act=dangnhap" class="nav-item nav-link">Đăng nhập</a>

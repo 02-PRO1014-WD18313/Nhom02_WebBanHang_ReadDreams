@@ -2,6 +2,11 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Ensure $_SESSION['cart'] is set and is an array
+    if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+
     // Lấy dữ liệu từ ajax đẩy lên
     $productId = $_POST['id'];
     $productName = $_POST['name'];
@@ -9,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Kiểm tra sản phẩm đã có trong giỏ hàng chưa
     $index = array_search($productId, array_column($_SESSION['cart'], 'id'));
-    // array_column() trích xuất một cột từ mảng giỏ hàng và trả về một mảng chứ giá trị của cột id
+
     if ($index !== false) {
         $_SESSION['cart'][$index]['quantity'] += 1;
     } else {

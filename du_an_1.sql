@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 26, 2023 lúc 05:10 AM
+-- Thời gian đã tạo: Th10 29, 2023 lúc 12:11 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -44,6 +44,25 @@ INSERT INTO `danhmuc` (`id`, `ten`) VALUES
 (5, 'Sách Thiếu Nhi'),
 (6, 'Giáo Khoa - Tham Khảo'),
 (7, 'Sách Học Ngoại Ngữ');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `order`
+--
+
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL,
+  `iduser` int(10) DEFAULT 0,
+  `order_name` varchar(250) NOT NULL,
+  `order_address` varchar(255) NOT NULL,
+  `order_tel` varchar(50) NOT NULL,
+  `order_email` varchar(100) NOT NULL,
+  `order_pttt` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1.Thanh toán trực tiếp\r\n2.Chuyển khoản\r\n3.Thanh toán online',
+  `ngaydathang` varchar(50) DEFAULT NULL,
+  `total` int(10) NOT NULL,
+  `order_status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0: Đơn hàng mới\r\n1.Đang xử lý\r\n2.Đang giao hàng\r\n3.Đã giao hàng'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -112,6 +131,12 @@ ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
@@ -133,6 +158,12 @@ ALTER TABLE `taikhoan`
 --
 ALTER TABLE `danhmuc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT cho bảng `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`

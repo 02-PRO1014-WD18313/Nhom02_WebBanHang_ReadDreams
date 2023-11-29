@@ -3,16 +3,17 @@ if (empty($dataDb)) {
     echo '<h1>Chưa có sản phẩm nào trong giỏ hàng</h1>';
 } else {
 ?>
+<div class="cart">Giỏ Hàng</div>
     <table border="1" width="100%" style="margin: 0 auto;">
         <thead>
             <tr align="center">
                 <td>STT</td>
-                <td>Image</td>
-                <td>Name</td>
-                <td>Price</td>
-                <td>Quantity</td>
-                <td>Total Price</td>
-                <td>Action</td>
+                <td>Hình ảnh</td>
+                <td>Tên sản phẩm</td>
+                <td>Đơn Giá</td>
+                <td>Số lượng</td>
+                <td>Thành tiền</td>
+                <td>Thao tác</td>
             </tr>
         </thead>
         <tbody id="order">
@@ -31,15 +32,15 @@ if (empty($dataDb)) {
                 <tr align="center">
                     <td><?= $key + 1 ?></td>
                     <td>
-                        <img src="<?= $img_path, $product['img'] ?>" alt="<?= $product['name'] ?>" style="width: 100px; height: auto">
+                        <img src="<?= $img_path . $product['anh'] ?>" alt="<?= $product['ten'] ?>" style="width: 100px; height: auto">
                     </td>
-                    <td><?= $product['name'] ?></td>
-                    <td><?= number_format((int)$product['price'], 0, ",", ".")  ?> <u>đ</u></td>
+                    <td><?= $product['ten'] ?></td>
+                    <td><?= number_format($product['gia_ban'], 0, ",", ".")  ?> <u>đ</u></td>
                     <td>
                         <input type="number" value="<?= $quantityInCart ?>" min="1" id="quantity_<?= $product['id'] ?>" oninput="updateQuantity(<?= $product['id'] ?>, <?= $key ?>)">
                     </td>
                     <td>
-                        <?= number_format((int)$product['price'] * (int)$quantityInCart, 0, ",", ".") ?> <u>đ</u>
+                        <?= number_format($product['gia_ban'] * $quantityInCart, 0, ",", ".") ?> <u>đ</u>
                     </td>
                     <td>
                         <button onclick="removeFormCart(<?= $product['id'] ?>)">Xóa</button>
@@ -47,30 +48,82 @@ if (empty($dataDb)) {
                 </tr>
             <?php
                 // Tính tổng giá đơn hàng
-                $sum_total += ((int)$product['price'] * (int)$quantityInCart);
+                $sum_total += $product['gia_ban'] * $quantityInCart;
 
-                // Lưu tổng giá trị vào sesion
+                // Lưu tổng giá trị vào session
                 $_SESSION['resultTotal'] = $sum_total;
             endforeach;
             ?>
 
             <tr>
                 <td colspan="5" align="center">
-                    <h2>Tổng tiền hàng:</h2>
+                    <h2>Tổng đơn hàng</h2>
                 </td>
                 <td colspan="2" align="center">
                     <h2>
                         <span>
-                            <?= number_format((int)$sum_total, 0, ",", ".")  ?> <u>đ</u>
+                            <?= number_format($sum_total, 0, ",", ".")  ?> <u>đ</u>
                         </span>
                     </h2>
                 </td>
             </tr>
         </tbody>
     </table>
+    <br>
+    <form class="form" action="index.php?act=order" method="post">
+        <input type="submit" class="order"   name="order" value="Đặt Hàng">
+    </form>
 <?php
 }
 ?>
+
+<style>
+    .cart {
+        text-align: center;
+        line-height: 50px; /* Điều chỉnh độ cao của nút */
+        padding: 10px 20px; /* Điều chỉnh khoảng cách giữa nút và vùng xung quanh */ 
+        font-size: 40px;
+        font-weight: bold;
+        color: #4CAF50;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+    }
+    .order{
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #4CAF50;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+    }
+    .order:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+    }
+
+</style>
+
+
+
+<!-- // if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+//     // Lấy dữ liệu từ session giỏ hàng
+//     $cartItems = $_SESSION['cart'];
+//     echo "Dữ liệu trong giỏ hàng:<br>";
+//     print_r($cartItems);
+// } else {
+//     echo "Giỏ hàng trống.";
+// }
+//  -->
+
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>

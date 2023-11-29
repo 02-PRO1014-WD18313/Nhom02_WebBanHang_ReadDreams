@@ -14,29 +14,25 @@
                             }
                             ?>
                             <div class="box_items <?php echo $mr ?>">
-                            <div class="boxsp '.$mr.'">
-                                    <div class="row img" style="text-align: center;"><a href="'.$linksp.'"><img src=<?= $hinh ?> style="height: 400px;width:100%;object-fit: cover;"></a></div>
-                                    <p><?= $gia_ban ?></p>
-                                    <a href="<?php echo $giaban . $ten; ?>"><?php echo $ten; ?></a>
-
-                                    <div class="row btnaddtocart">
-                                    <form action="index.php?act=addtocart" method="post">
-                                        <input type="hidden" name="id" value=<?= $id ?>>
-                                        <input type="hidden" name="name" value=<?= $ten ?>>
-                                        <input type="hidden" name="img" value=<?= $hinh ?>>
-                                        <input type="hidden" name="price" value=<?= $gia_ban ?>>
-                                        <button data-id="<?= $id ?>" class="btnCart" onclick="addToCart(<?= $id ?>, '<?= $name ?>', <?= $price ?>)">Thêm vào giỏ hàng</button>
-                                        
-                                    </form>
-                                    </div>
-                                  </div>'
-                   
+                    <div class="row img">
+                        <a href="<?php echo $linksp ?>" style="height: 400px;width:100%;object-fit: cover;"><img src="<?php echo $hinh ?>" alt="" style="height: 400px;width:100%;object-fit: cover;"></a>
+                    </div>
+                    <a href="<?php echo $linksp ?>">
+                        <b><?php echo $ten ?></b>
+                    </a>
+                    <p style="color: red;">
+                        <b><?php echo number_format($gia_ban) ?> ₫</b>
+                    </p>
+                    <div>
+                        <button data-id="<?= $id ?>" class="btnCart" onclick="addToCart(<?= $id ?>, '<?= $ten ?>', <?= $gia_ban ?>)">Thêm vào giỏ hàng</button>
+                    </div>
                 </div>
-            <?php
-                $i += 1;
-                endforeach;
-            ?>
+                <?php
+                        $i += 1;
+                    endforeach;
+               
         
+              ?>
               
         </div>
 </div>
