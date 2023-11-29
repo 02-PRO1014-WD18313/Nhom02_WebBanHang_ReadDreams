@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2023 lúc 12:11 PM
+-- Thời gian đã tạo: Th10 29, 2023 lúc 05:29 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -48,21 +48,52 @@ INSERT INTO `danhmuc` (`id`, `ten`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order`
+-- Cấu trúc bảng cho bảng `order_detail`
 --
 
-CREATE TABLE `order` (
-  `id` int(11) NOT NULL,
-  `iduser` int(10) DEFAULT 0,
-  `order_name` varchar(250) NOT NULL,
-  `order_address` varchar(255) NOT NULL,
-  `order_tel` varchar(50) NOT NULL,
-  `order_email` varchar(100) NOT NULL,
-  `order_pttt` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1.Thanh toán trực tiếp\r\n2.Chuyển khoản\r\n3.Thanh toán online',
-  `ngaydathang` varchar(50) DEFAULT NULL,
-  `total` int(10) NOT NULL,
-  `order_status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0: Đơn hàng mới\r\n1.Đang xử lý\r\n2.Đang giao hàng\r\n3.Đã giao hàng'
+CREATE TABLE `order_detail` (
+  `id_order_detail` int(11) NOT NULL,
+  `id_order` int(11) NOT NULL,
+  `id_pro` int(11) NOT NULL,
+  `giamua` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `thanhtien` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_detail`
+--
+
+INSERT INTO `order_detail` (`id_order_detail`, `id_order`, `id_pro`, `giamua`, `soluong`, `thanhtien`) VALUES
+(1, 1, 8, 86, 1, 86),
+(2, 1, 7, 0, 1, 0),
+(3, 1, 6, 88, 2, 176),
+(4, 1, 9, 100, 1, 100),
+(5, 1, 5, 300000, 1, 300000),
+(6, 2, 9, 100, 1, 100),
+(7, 2, 8, 86, 1, 86),
+(8, 3, 9, 100, 1, 100),
+(9, 3, 7, 0, 1, 0),
+(10, 4, 8, 86, 2, 172),
+(11, 4, 6, 88, 1, 88),
+(12, 4, 3, 50000, 1, 50000),
+(13, 5, 8, 86, 1, 86),
+(14, 5, 9, 100, 1, 100),
+(15, 5, 6, 88, 1, 88),
+(16, 6, 6, 88, 1, 88),
+(17, 6, 8, 86, 1, 86),
+(18, 7, 9, 100, 1, 100),
+(19, 7, 6, 88, 1, 88),
+(20, 7, 2, 50000, 1, 50000),
+(21, 7, 3, 50000, 1, 50000),
+(22, 8, 9, 100, 1, 100),
+(23, 8, 6, 88, 1, 88),
+(24, 8, 4, 150000, 1, 150000),
+(25, 9, 8, 86, 1, 86),
+(26, 10, 9, 100, 1, 100),
+(27, 10, 6, 88, 1, 88),
+(28, 11, 8, 86, 5, 430),
+(29, 11, 9, 100, 2, 200);
 
 -- --------------------------------------------------------
 
@@ -120,6 +151,42 @@ INSERT INTO `taikhoan` (`id`, `user`, `pass`, `email`, `tel`, `role`) VALUES
 (16, 'Rachel', '123', 'hangntkookie97@gmail.com', '0988697902', 0),
 (17, 'phuong', '2345', 'phuongnvph33554@fpt.edu.vn', '035565456566', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_order`
+--
+
+CREATE TABLE `tbl_order` (
+  `id_order` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `hoten` varchar(250) NOT NULL,
+  `sdt` varchar(255) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `diachi` varchar(250) NOT NULL,
+  `tongtien` int(11) NOT NULL,
+  `pttt` tinyint(4) NOT NULL COMMENT '1.Thanh toán trực tiếp\r\n2.Chuyển khoản',
+  `ngaydathang` datetime NOT NULL,
+  `trangthai` tinyint(4) NOT NULL COMMENT '0: Đơn hàng mới\r\n1.Đang xử lý\r\n2.Đang giao hàng\r\n3.Đã giao hàng'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_order`
+--
+
+INSERT INTO `tbl_order` (`id_order`, `id_user`, `hoten`, `sdt`, `email`, `diachi`, `tongtien`, `pttt`, `ngaydathang`, `trangthai`) VALUES
+(1, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', '0', 1200000, 1, '0000-00-00 00:00:00', 0),
+(2, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', '0', 186, 1, '0000-00-00 00:00:00', 0),
+(3, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', '0', 186, 1, '0000-00-00 00:00:00', 0),
+(4, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', '0', 50260, 1, '0000-00-00 00:00:00', 0),
+(5, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', '0', 274, 2, '0000-00-00 00:00:00', 0),
+(6, 16, 'sdsd', 'wdwd', 'hiu@gmail.com', '0', 174, 1, '0000-00-00 00:00:00', 0),
+(7, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', '0', 100188, 1, '0000-00-00 00:00:00', 0),
+(8, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', 'xuaan phuong', 150188, 1, '0000-00-00 00:00:00', 0),
+(9, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', 'xuaan phuong', 86, 1, '1970-01-01 01:00:00', 0),
+(10, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', 'xuaan phuong', 188, 1, '1970-01-01 08:00:00', 0),
+(11, 16, 'Nguyeenx minh hieu', '0988697903', 'hiu@gmail.com', 'xuaan phuong', 630, 1, '1970-01-01 08:00:00', 0);
+
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -131,10 +198,11 @@ ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `order`
+-- Chỉ mục cho bảng `order_detail`
 --
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `order_detail`
+  ADD PRIMARY KEY (`id_order_detail`),
+  ADD KEY `id_order` (`id_order`);
 
 --
 -- Chỉ mục cho bảng `sanpham`
@@ -150,6 +218,12 @@ ALTER TABLE `taikhoan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `tbl_order`
+--
+ALTER TABLE `tbl_order`
+  ADD PRIMARY KEY (`id_order`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -160,10 +234,10 @@ ALTER TABLE `danhmuc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `order`
+-- AUTO_INCREMENT cho bảng `order_detail`
 --
-ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `order_detail`
+  MODIFY `id_order_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
@@ -178,8 +252,20 @@ ALTER TABLE `taikhoan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT cho bảng `tbl_order`
+--
+ALTER TABLE `tbl_order`
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`id_order`) REFERENCES `tbl_order` (`id_order`);
 
 --
 -- Các ràng buộc cho bảng `sanpham`
