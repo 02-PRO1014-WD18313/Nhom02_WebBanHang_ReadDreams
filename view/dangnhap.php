@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/styleuser.css">
-   
-    </style>
 </head>
 <body>
 
-<div class="boxtitle">ĐĂNG NHẬP</div>
-                    <div class="boxcontent formtaikhoan">
                         <?php
                             if(isset($_SESSION['user'])){
                                 extract($_SESSION['user']);
@@ -29,6 +24,7 @@
                                 <li>
                                     <a href="index.php?act=quenmk">Quên mật khẩu</a>
                                 </li>
+            <!-- Bạn có thể bỏ comment nếu muốn hiển thị link cập nhật tài khoản -->
                                 <!-- <li>
                                     <a href="index.php?act=edit_taikhoan">Cập nhật tài khoản</a>
                                 </li> -->
@@ -39,43 +35,45 @@
                                 </li>
                                 <?php } ?>
 
-                                <li>
-                                    <a href="index.php?act=thoat">Thoát</a>
-                                </li>
-                            </div>
-                        <?php
-                            } else {
+            <li>
+                <a href="index.php?act=thoat">Thoát</a>
+            </li>
+        </div>
+    </div>
+<?php
+} else {
+?>
+    <div class="boxtitle">ĐĂNG NHẬP</div>
+    <div class="boxcontent formtaikhoan">
+        <form action="index.php?act=dangnhap" method="post">
+            <div class="row mb10">
+                Tên đăng nhập <br>
+                <input type="text" name="user"> 
+            </div>
+            <div class="row mb10">
+                Mật khẩu <br>
+                <input type="password" name="pass"> 
+            </div>
+            <div class="row mb10">
+                <input type="submit" value="Đăng nhập" name="dangnhap">
+            </div>
+        </form>
+        <li>
+            <a href="index.php?act=quenmk">Quên mật khẩu</a>
+        </li>
+        <li>
+            <a href="index.php?act=dangky">Đăng ký thành viên</a>
+        </li>
 
-                        ?>
-                        <form action="index.php?act=dangnhap" method="post">
-                            <div class="row mb10">
-                            Tên đăng nhập <br>
-                            <input type="text" name="user"> 
-                        </div>
-                        <div class="row mb10">
-                             Mật khẩu <br>
-                            <input type="password" name="pass"> 
-                        </div>
-                        <div class="row mb10">
-                            <input type="submit" value="Đăng nhập" name="dangnhap">
-                        </div>
-                    </form>
-                            <li>
-                                <a href="index.php?act=quenmk">Quên mật khẩu</a>
-                            </li>
-                            <li>
-                                <a href="index.php?act=dangky">Đăng ký thành viên</a>
-                            </li>
+        <?php
+            if(isset($thongbao) && ($thongbao != "")){
+                echo $thongbao;
+            }
+        ?>
+    </div>
+<?php
+}
+?>
 
-                    <?php }?>
-
-                    <?php
-                            if(isset($thongbao)&&($thongbao!="")){
-                                echo $thongbao;
-                            }
-                       ?>
-                        
-                    </div>
-    </body>
+</body>
 </html>
-       

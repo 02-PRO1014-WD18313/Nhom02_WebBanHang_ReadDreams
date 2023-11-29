@@ -101,48 +101,9 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     header('Location: index.php');
                     break;
 
-                    // case 'addtocart':
-                    //     if(isset($_POST['addtocart'])&&($_POST['addtocart'])){
-                    //         $id=$_POST['id'];
-                    //         $name=$_POST['name'];
-                    //         $img=$_POST['img'];
-                    //         $price=$_POST['price'];
-                    //         $soluong=1;
-                    //         $ttien=$soluong * $price;
-                    //         $spadd=[$id,$name,$img,$price,$soluong,$ttien];
-                    //         array_push($_SESSION['mycart'],$spadd);
-                    //     }
-                    //     insert_cart($img, $name, $price, $soluong);
-                    //     include "view/cart/viewcart.php";
-                    //     break;
+                    
 
-                    //     case 'delcart':
-                    //         if(isset($_GET['idcart'])){
-                    //             array_splice($_SESSION['mycart'],$_GET['idcart'],1);
-                    //         } else {
-                    //             $_SESSION['mycart']=[];
-                    //         }
-                    //         include "view/cart/viewcart.php";
-                    //         break;
-
-                    case "listCart":
-                        // Kiểm tra xem giỏ hàng có dữ liệu hay không
-                        if (!empty($_SESSION['cart'])) {
-                            $cart = $_SESSION['cart'];
-            
-                            // Tạo mảng chứa ID các sản phẩm trong giỏ hàng
-                            $productId = array_column($cart, 'id');
-                            
-                            // Chuyển đôi mảng id thành một cuỗi để thực hiện truy vấn
-                            $idList = implode(',', $productId);
-                            
-                            // Lấy sản phẩm trong bảng sản phẩm theo id
-                            $dataDb = loadone_sanphamCart($idList);
-                            // var_dump($dataDb);
-                        }
-                        include "view/cart/listCarOrder.php";
-
-                        break;
+                    
                         
             }
             ob_end_flush();

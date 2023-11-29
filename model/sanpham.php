@@ -57,11 +57,4 @@ function hard_delete($id){
 //     $sql = "UPDATE `sanpham` SET `trangthai` = 1 WHERE `sanpham`.`id` = $id";
 //     pdo_execute($sql);
 // }
-
-function loadone_sanphamCart ($idList) {
-    $sql = 'SELECT * FROM sanpham WHERE id IN ('. $idList . ')';
-    $sanpham = pdo_query($sql);
-    return $sanpham;
-}
-
 ?>
