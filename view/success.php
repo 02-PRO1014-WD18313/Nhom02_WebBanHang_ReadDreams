@@ -6,9 +6,10 @@
     <title>Document</title>
     <style>
         .tc {
-            color: #4CAF50; /* Màu chữ */
-            font-size: 24px; /* Kích thước chữ */
-            font-weight: bold; /* Chữ in đậm */
+            color: #4CAF50; 
+            font-size: 24px; 
+            font-weight: bold; 
+            text-align: center;
         }
     </style>
 </head>
