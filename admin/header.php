@@ -87,9 +87,11 @@
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
                                     <a href="cart.html" class="dropdown-item">Xem giỏ</a>
                                     <a href="checkout.html" class="dropdown-item">Thanh toán</a>
+                                    
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                            
+                            <a href="index.php?act=thoat"  class="nav-item nav-link">Thoát</a>
                         </div>
                         <!-- <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="" class="btn px-0">
