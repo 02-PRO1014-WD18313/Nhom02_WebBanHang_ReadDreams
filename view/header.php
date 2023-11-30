@@ -14,6 +14,17 @@
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+    <style>
+    #totalProduct {
+      color: #fff;
+      background-color: red;
+      font-size: 12px;
+      padding: 5px;
+      border-radius: 50%;
+      float: right;
+      margin-right: 10px; 
+    }
+  </style>
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -47,6 +58,7 @@
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                     <div class="navbar-nav w-100">
                         <div class="nav-item dropdown dropright">
+                           
                             
                         <!-- <a href="" class="nav-item nav-link">Văn Học</a>
                         <a href="" class="nav-item nav-link">Kinh Tế</a>
@@ -77,23 +89,27 @@
                         <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
                         <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
                     </a>
-                    <h1>abc</h1>
+                    
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
-                            <a href="shop.html" class="nav-item nav-link">Cửa hàng</a>
-                            <a href="detail.html" class="nav-item nav-link">Thông tin</a>
+                            <a href="index.php" class="nav-item nav-link active">Trang chủ</a>
+                            <!-- <a href="shop.html" class="nav-item nav-link">Cửa hàng</a> -->
+                            <!-- <a href="detail.html" class="nav-item nav-link">Thông tin</a> -->
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Giỏ hàng<i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Xem giỏ</a>
-                                    <a href="checkout.html" class="dropdown-item">Thanh toán</a>
+                                    <a href="index.php?act=listCart" class="dropdown-item">Xem giỏ</a>
+                                    <span id="totalProduct"><?= !empty($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?></span>
+                                    <a href="index.php?act=order" class="dropdown-item">Thanh toán</a>
                                 </div>
                             </div>
+
+                            
                             <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+
                     
                             <a href="index.php?act=dangnhap" class="nav-item nav-link">Đăng nhập</a>
                         </div>
