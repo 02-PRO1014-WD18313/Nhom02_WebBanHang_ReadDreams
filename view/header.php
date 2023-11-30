@@ -21,6 +21,8 @@
       font-size: 12px;
       padding: 5px;
       border-radius: 50%;
+      float: right;
+      margin-right: 10px; 
     }
   </style>
 
