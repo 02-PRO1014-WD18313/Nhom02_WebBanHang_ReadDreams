@@ -1,32 +1,39 @@
-<div class="row mb">
-            <div class="box mr">
-                <div class="row mb">
-                    
-                    <div class="boxtitle">SẢN PHẨM <strong><?=$id?></strong></div>
-                        <div class="row boxcontent">
-                            <?php
-                                $i = 0;
-                                foreach ($dssp as $sp){
-                                    extract($sp);
-                                    $linksp="index.php?act=sanphamct&idsp=".$id;
-                                    $hinh=$img_path.$anh;
-                                    if(($i==2)||($i==5)||($i==8)||($i==11)){
-                                        $mr="";
-                                    } else {
-                                        $mr="mr";
-                                    }
-                                    echo '<div class="boxsp '.$mr.'">
-                                            <div class="row img" style="text-align: center;"><a href="'.$linksp.'"><img src="'.$hinh.'" alt="" width="85%" height="50%"></a></div>
-                                            <p>'.$price.'</p>
-                                            <a href="'.$linksp.'">'.$ten.'</a>
-                                          </div>' ;
-                                    $i+=1;
-                                }
-                            ?>
-                        </div>
+
+
+
+        <main class="catalog  mb ">
+    <div class="boxleft">
+        <div class="items">
+            <?php
+            $i=0;
+            foreach ($dssp as $sp){
+                extract($sp);
+                $anh =  $img_path.$anh;
+                $linksp="index.php?act=sanphamct&idsp=".$id;
+                
+                // if(($i==2)||($i==5)||($i==8)){
+                //     $mr="";
+                // }else{
+                //     $mr="mr";
+                // }
+                echo '<div class="box_items">
+                    <div class="box_items_img">
+                    <img src="'.$anh.'" alt="" style="height: 400px;width:100%;object-fit: cover;">
+                    <div class="add" > 
+                    <a href="'. $linksp .'">ADD TO CART</a>
+                    </div>
                 </div>
-            </div>
-            <div class="box mr">
-                <?php include "boxright.php"; ?>
-            </div>
+                <a class="item_name" href="'. $linksp .'">'.$ten.'</a>
+                <p class="price">'.$gia_ban.'đ</p>
+                
+            </div>';
+                    $i+=1;
+                }
+            ?>
+
+           
         </div>
+    </div>
+
+</main>
+<!-- BANNER 2 -->

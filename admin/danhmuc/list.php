@@ -1,5 +1,6 @@
 <?php
 $dsdm = loadall_danhmuc();
+if(isset($thongbao) && ($thongbao!="")) echo $thongbao;
 ?>
 
 <table>
@@ -14,6 +15,7 @@ $dsdm = loadall_danhmuc();
 
                     foreach ($dsdm as $dm) {
                         extract($dm);
+                        $deletedanhmuc = "index.php?act=deletedanhmuc&id=" . $id;
                       
                         $suadanhmuc = "index.php?act=suadanhmuc&iddanhmuc=" . $id;
                         echo '<tr>
@@ -21,14 +23,15 @@ $dsdm = loadall_danhmuc();
                             <td>' . $ten . '</td>
                             <td>
                                 <a href="' . $suadanhmuc . '"><input type="button" value="Sửa"> </a>  
+                                <a href="' . $deletedanhmuc .'"><input type ="button" value="Xóa " onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')"></a>
                                 
                                 
                             </td>
                     </tr>';
             
                     }
-                    // <a href="' . $hard_delete .'"><input type ="button" value="Xóa " onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')"></a>
-                    //                     <a href="' . $soft_delete .'"><input type ="button" value="Xóa mềm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')"></a>
+                    
+                                        // <a href="' . $soft_delete .'"><input type ="button" value="Xóa mềm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')"></a>
                     ?>
 
 </table>

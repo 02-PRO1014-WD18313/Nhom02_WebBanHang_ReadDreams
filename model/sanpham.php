@@ -1,4 +1,5 @@
 
+
 <?php
 function loadall_sanpham_home(){
     $sql="select * from sanpham where 1 order by id desc limit 0,8";
@@ -10,13 +11,13 @@ function insert_sanpham($ten, $id_danh_muc, $gia_niem_yet,$gia_ban, $so_luong, $
     pdo_execute($sql);
 }
 function loadall_sanpham($keyw="",$iddm=0){
-    $sql="SELECT * from sanpham ";
+    $sql="SELECT * from sanpham where trangthai = 0";
     // where 1 tức là nó đúng
     if($keyw!=""){
-        $sql.=" and name like '%".$keyw."%'";
+        $sql.=" where ten like '%".$keyw."%'";
     }
     if($iddm>0){
-        $sql.=" and iddm ='".$iddm."'";
+        $sql.=" and id_danh_muc ='".$iddm."'";
     }
     $sql.=" order by id desc";
     $listsanpham=pdo_query($sql);
@@ -57,6 +58,12 @@ function hard_delete($id){
 //     $sql = "UPDATE `sanpham` SET `trangthai` = 1 WHERE `sanpham`.`id` = $id";
 //     pdo_execute($sql);
 // }
+function check_khoa_ngoai($id){
+    $sql="select * from sanpham where id_danh_muc =".$id;
+    
+    $listsanpham=pdo_query($sql);
+    return  count($listsanpham);
+}
 
 function loadone_sanphamCart ($idList) {
     $sql = 'SELECT * FROM sanpham WHERE id IN ('. $idList . ')';
@@ -64,3 +71,4 @@ function loadone_sanphamCart ($idList) {
     return $sanpham;
 }
 ?>
+

@@ -1,4 +1,5 @@
 
+
 <?php
 session_start();
 if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
@@ -156,5 +157,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
         }             
                
 include "view/footer.php";
+
 
 ?>
