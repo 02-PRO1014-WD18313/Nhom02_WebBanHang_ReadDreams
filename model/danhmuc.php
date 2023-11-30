@@ -7,10 +7,10 @@ function loadall_danhmuc(){
 }
 function load_ten_dm($iddm){
     if($iddm>0){
-        $sql="select * from sanpham where id=".$iddm;
+        $sql="select * from sanpham where id_danh_muc=".$iddm;
         $dm=pdo_query_one($sql);
-        extract($dm);
-        return $name;
+        
+        return $dm;
     }else{
         return "";
     }
@@ -36,3 +36,7 @@ function delete_danhmuc($id){
     $sql = "DELETE FROM danhmuc WHERE id=" .$id;
     pdo_execute($sql);
 }
+// function hard_delete($id){
+//     $sql = "DELETE FROM danhmuc WHERE id=" .$id;
+//     pdo_execute($sql);
+// }

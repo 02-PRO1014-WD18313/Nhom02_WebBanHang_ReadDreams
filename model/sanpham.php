@@ -10,10 +10,10 @@ function insert_sanpham($ten, $id_danh_muc, $gia_niem_yet,$gia_ban, $so_luong, $
     pdo_execute($sql);
 }
 function loadall_sanpham($keyw="",$iddm=0){
-    $sql="SELECT * from sanpham ";
+    $sql="SELECT * from sanpham where trangthai = 0";
     // where 1 tức là nó đúng
     if($keyw!=""){
-        $sql.=" and name like '%".$keyw."%'";
+        $sql.=" where ten like '%".$keyw."%'";
     }
     if($iddm>0){
         $sql.=" and id_danh_muc ='".$iddm."'";
@@ -57,3 +57,9 @@ function hard_delete($id){
 //     $sql = "UPDATE `sanpham` SET `trangthai` = 1 WHERE `sanpham`.`id` = $id";
 //     pdo_execute($sql);
 // }
+function check_khoa_ngoai($id){
+    $sql="select * from sanpham where id_danh_muc =".$id;
+    
+    $listsanpham=pdo_query($sql);
+    return  count($listsanpham);
+}

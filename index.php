@@ -65,6 +65,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
             }
             $dssp=loadall_sanpham($kyw, $iddm);
             $tendm = load_ten_dm($iddm);
+            extract($dm);
             include "view/sanpham.php";
             break;
 
@@ -84,10 +85,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     include "view/home.php";
                     break;
 
-         
-
-                    
-
                 case 'dangnhap':
                     if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
                         $user=$_POST['user'];
@@ -96,7 +93,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                         if(is_array($checkuser)){
                             $_SESSION['user']=$checkuser;
                             // $thongbao="Bạn đã đăng nhập thành công!";
-                            header('Location: index.php');
+                            header('Location:   index.php');
                         } else {
                             $thongbao="Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký!";
                         }
