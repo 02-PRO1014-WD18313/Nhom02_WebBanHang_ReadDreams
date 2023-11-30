@@ -13,4 +13,12 @@ function addOrderDetail($id_order, $id_pro, $giamua, $soluong, $thanhtien){
     $sql="INSERT INTO order_detail (id_order, id_pro, giamua, soluong, thanhtien) VALUES ($id_order, $id_pro, $giamua, $soluong, $thanhtien );";
     pdo_execute($sql);
 }
+
+function loadone_order($id_order){
+    $sql="select * from tbl_order where id_order=".$id_order ; 
+    $order = pdo_query_one($sql);
+    return $order;
+}
+
+
 ?>
