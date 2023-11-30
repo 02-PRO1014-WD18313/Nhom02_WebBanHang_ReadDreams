@@ -68,89 +68,87 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                 include "view/dangky.php";
                 break;
 
-                case 'dangnhap':
-                    if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
-                        $user=$_POST['user'];
-                        $pass=$_POST['pass'];
-                        $checkuser=checkuser($user, $pass);
-                        if(is_array($checkuser)){
-                            $_SESSION['user']=$checkuser;
-                            // $thongbao="Bạn đã đăng nhập thành công!";
-                            header('Location: index.php');
-                        } else {
-                            $thongbao="Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký!";
-                        }
+            case 'dangnhap':
+                if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
+                    $user=$_POST['user'];
+                    $pass=$_POST['pass'];
+                    $checkuser=checkuser($user, $pass);
+                    if(is_array($checkuser)){
+                        $_SESSION['user']=$checkuser;
+                        // $thongbao="Bạn đã đăng nhập thành công!";
+                        header('Location: index.php');
+                    } else {
+                        $thongbao="Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký!";
                     }
-                    include "view/dangnhap.php";
-                    break;
+                }
+                include "view/dangnhap.php";
+                break;
 
-                case 'thoat':
-                    session_unset();
-                    header('Location: index.php');
-                    break;
+            case 'thoat':
+                session_unset();
+                header('Location: index.php');
+                break;
 
                     
-                case "listCart":
-                    // Kiểm tra xem giỏ hàng có dữ liệu hay không
-                    if (!empty($_SESSION['cart'])) {
-                        $cart = $_SESSION['cart'];
-            
-                        // Tạo mảng chứa ID các sản phẩm trong giỏ hàng
-                        $productId = array_column($cart, 'id');
-                            
-                        // Chuyển đôi mảng id thành một cuỗi để thực hiện truy vấn
-                        $idList = implode(',', $productId);
-                            
-                        // Lấy sản phẩm trong bảng sản phẩm theo id
-                        $dataDb = loadone_sanphamCart($idList);
-                        // var_dump($dataDb);
-                    }
-                    include "view/listCartOrder.php";
-                    break;
+            case "listCart":
+                // Kiểm tra xem giỏ hàng có dữ liệu hay không
+                if (!empty($_SESSION['cart'])) {
+                    $cart = $_SESSION['cart'];
+                    // Tạo mảng chứa ID các sản phẩm trong giỏ hàng
+                    $productId = array_column($cart, 'id');
+                    // Chuyển đôi mảng id thành một cuỗi để thực hiện truy vấn
+                    $idList = implode(',', $productId);
+                    // Lấy sản phẩm trong bảng sản phẩm theo id
+                    $dataDb = loadone_sanphamCart($idList);
+                }
+                include "view/listCartOrder.php";
+                break;
 
-                   
-                    case "order":
-                        if (isset($_SESSION['cart'])) {
-                            $cart = $_SESSION['cart'];
-                            // print_r($cart);
-                            if (isset($_POST['order_confirm'])) {
-                                $txthoten = $_POST['txthoten'];
-                                $txttel = $_POST['txttel'];
-                                $txtemail = $_POST['txtemail'];
-                                $txtaddress = $_POST['txtaddress'];
-                                $pttt = $_POST['pttt'];
-                                $ngaydathang=date('h:i:sa d/m/Y');
-                                // date_default_timezone_set('Asia/Ho_Chi_Minh');
-                                // $currentDateTime = date('Y-m-d H:i:s');
-                                if (isset($_SESSION['user'])) {
-                                    $id_user = $_SESSION['user']['id'];
-                                } else {
-                                    $id_user = 0;
-                                }
-                                $idBill = addOrder($id_user, $txthoten, $txttel, $txtemail, $txtaddress, $_SESSION['resultTotal'], $pttt, $ngaydathang);
-                                foreach ($cart as $item) {
-                                    addOrderDetail($idBill, $item['id'], $item['price'], $item['quantity'], $item['price'] * $item['quantity']);
-                                }
+            case "order":
+                if (isset($_SESSION['cart'])) {
+                    $cart = $_SESSION['cart'];
+                    // print_r($cart);
+                    if (isset($_POST['order_confirm'])) {
+                        $txthoten = $_POST['txthoten'];
+                        $txttel = $_POST['txttel'];
+                        $txtemail = $_POST['txtemail'];
+                        $txtaddress = $_POST['txtaddress'];
+                        $pttt = $_POST['pttt'];
+                        $ngaydathang=date('h:i:sa d/m/Y');
+                        if (isset($_SESSION['user'])) {
+                            $id_user = $_SESSION['user']['id'];
+                        } else {
+                            $id_user = 0;
+                        }
+                            $idBill = addOrder($id_user, $txthoten, $txttel, $txtemail, $txtaddress, $_SESSION['resultTotal'], $pttt, $ngaydathang);
+                            foreach ($cart as $item) {
+                                addOrderDetail($idBill, $item['id'], $item['price'], $item['quantity'], $item['price'] * $item['quantity']);
+                            }
                                 unset($_SESSION['cart']);
                                 $_SESSION['success'] = $idBill;
                                 header("Location: index.php?act=success");
                             }
-                            include "view/order.php";
-                        } else {
-                            header("Location: index.php?act=listCart");
-                        }
+                        include "view/order.php";
+                            } else {
+                                header("Location: index.php?act=listCart");
+                            }
                         break;
 
-                        case "success":
-                            if (isset($_SESSION['success'])) {
-                                include 'view/success.php';
-                            } else {
-                                header("Location: index.php");
-                            }
-                            break;
-                    
-                        
-            }
+            case "success":
+                if (isset($_SESSION['success'])) {
+                    include 'view/success.php';
+                    } else {
+                        header("Location: index.php");
+                    }
+                    break;
+            
+            case "myorder":
+                $listorder=loadone_order($_SESSION['user']['id']);
+                include "view/myorder.php";
+                break;
+
+                     
+                }
             ob_end_flush();
         }else{
             include "view/home.php";

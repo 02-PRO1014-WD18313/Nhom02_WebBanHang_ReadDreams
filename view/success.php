@@ -7,7 +7,7 @@
     <style>
         .tc {
             color: #4CAF50; 
-            font-size: 24px; 
+            font-size: 30px; 
             font-weight: bold; 
             text-align: center;
         }

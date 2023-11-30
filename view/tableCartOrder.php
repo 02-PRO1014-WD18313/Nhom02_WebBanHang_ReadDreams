@@ -77,5 +77,6 @@ if (!empty($_SESSION['cart'])) {
         echo '<tr><td colspan="7" align="center">Chưa có sản phẩm nào trong giỏ hàng</td></tr>';
     }
 }
+
 ?>
 

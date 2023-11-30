@@ -1,6 +1,6 @@
 <?php
 if (empty($dataDb)) {
-    echo '<h1>Chưa có sản phẩm nào trong giỏ hàng</h1>';
+    echo '<h1 class="no">Chưa có sản phẩm nào trong giỏ hàng</h1>';
 } else {
 ?>
 <div class="cart">Giỏ Hàng</div>
@@ -80,8 +80,8 @@ if (empty($dataDb)) {
 <style>
     .cart {
         text-align: center;
-        line-height: 50px; /* Điều chỉnh độ cao của nút */
-        padding: 10px 20px; /* Điều chỉnh khoảng cách giữa nút và vùng xung quanh */ 
+        line-height: 50px; 
+        padding: 10px 20px;
         font-size: 40px;
         font-weight: bold;
         color: #4CAF50;
@@ -108,6 +108,12 @@ if (empty($dataDb)) {
     .order:hover {
     background-color: #45a049;
     transform: scale(1.1);
+    }
+    .no{
+        color: #4CAF50; 
+        font-size: 30px; 
+        font-weight: bold; 
+        text-align: center;
     }
 
 </style>
