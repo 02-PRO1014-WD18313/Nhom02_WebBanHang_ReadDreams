@@ -50,27 +50,8 @@
                                 <input type="text" name="user"> 
                             </div>
                             <div class="row mb10">
-
-                                <!-- <li>
-                                    <a href="index.php?act=mybill">Đơn hàng của tôi</a>
-                                </li>
-                                <li>
-                                    <a href="index.php?act=quenmk">Quên mật khẩu</a>
-                                </li>
-                                <li>
-                                    <a href="index.php?act=edit_taikhoan">Cập nhật tài khoản</a>
-                                </li> -->
-
-                                <?php if($role==1){ ?>
-                                <li>
-                                    <a href="admin/index.php?act=listsp">Đăng nhập Admin</a>
-                                </li>
-                                <?php } ?>
-
-                                <li>
-                                    <a href="index.php?act=thoat">Thoát</a>
-                                </li>
-
+                                Mật khẩu <br>
+                                <input type="text" name="pass"> 
                             </div>
                             <div class="row mb10">
                                 <input type="submit" value="Đăng nhập" name="dangnhap">
