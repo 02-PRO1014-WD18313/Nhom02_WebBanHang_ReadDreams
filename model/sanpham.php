@@ -70,5 +70,7 @@ function loadone_sanphamCart ($idList) {
     $sanpham = pdo_query($sql);
     return $sanpham;
 }
+
+
 ?>
 
