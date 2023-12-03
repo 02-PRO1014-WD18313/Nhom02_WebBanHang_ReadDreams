@@ -19,10 +19,12 @@
       color: #fff;
       background-color: red;
       font-size: 12px;
-      padding: 5px;
+      padding: 4px;
       border-radius: 50%;
       float: right;
-      margin-right: 10px; 
+      position: absolute;
+      top: 13px;
+      left: 120px;
     }
   </style>
 
