@@ -20,5 +20,17 @@ function loadone_order($id_order){
     return $order;
 }
 
+function load_all_orders($user_id) {
+    $sql = "SELECT * FROM tbl_order WHERE id_user = ?";
+    $orders = pdo_query($sql, $user_id);
+    return $orders;
+}
+
+function load_order_details($id_order){
+    $sql = "SELECT order_detail.*, sanpham.ten AS ten_san_pham FROM order_detail JOIN sanpham ON order_detail.id_pro = sanpham.id WHERE id_order=?";
+    $orderDetails = pdo_query($sql, $id_order);
+    return $orderDetails;
+}
+
 
 ?>
