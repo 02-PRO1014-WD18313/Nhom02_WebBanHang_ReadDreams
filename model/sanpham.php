@@ -14,7 +14,7 @@ function loadall_sanpham($keyw="",$iddm=0){
     $sql="SELECT * from sanpham where trangthai = 0";
     // where 1 tức là nó đúng
     if($keyw!=""){
-        $sql.=" where ten like '%".$keyw."%'";
+        $sql.=" and ten like '%".$keyw."%'";
     }
     if($iddm>0){
         $sql.=" and id_danh_muc ='".$iddm."'";
