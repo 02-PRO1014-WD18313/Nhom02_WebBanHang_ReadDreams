@@ -63,6 +63,39 @@ function pdo_query_one($sql){
         unset($conn);
     }
 }
+function pdo_executeid($sql){
+    $sql_args=array_slice(func_get_args(),1);
+    try{
+        $conn=pdo_get_connection();
+        $stmt=$conn->prepare($sql);
+        $stmt->execute($sql_args);
+        $lastInsertId = $conn->lastInsertId();
+
+        return $lastInsertId;
+    }
+    catch(PDOException $e){
+        throw $e;
+    }
+    finally{
+        unset($conn);
+    }
+}
+//trả về 1 giá tị id
+function pdo_execute_return_lastInsertId($sql){
+    $sql_args = array_slice(func_get_args(), 1);
+    try{
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        return $conn->lastInsertId();
+    }
+    catch(PDOException $e){
+        throw $e;
+    }
+    finally{
+        unset($conn);
+    }
+}
 pdo_get_connection();
 
 ?>

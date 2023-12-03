@@ -118,15 +118,36 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
             case "updatedanhmuc":
                             if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                                
-                                $ten=$_POST['ten'];
+                                $ten=$_POST['tendanhmuc'];
                                 $id=$_POST['id'];
                                
                                 update_danhmuc($id,$ten);
                                 
                             }
                             include "danhmuc/update.php";
-                            include "danhmuc/list.php";
-                            break;      
+                            
+                            break;     
+            case"deletedanhmuc":
+                                if(isset($_GET['id']) && ($_GET['id']>0)){
+                                    $id=$_GET['id'];
+                                    $tb=check_khoa_ngoai($id);
+                                    if($tb>0)
+                                    {
+                                        $thongbao = "không xoá được danh mục vì có sản phẩm";
+
+                                    }
+                                    else{
+                                        
+                                        delete_danhmuc($id);
+                                        $thongbao = "Xoá thành công";
+
+                                    }
+                                    // hard_delete($_GET['idsp']);
+                                   
+                                }
+                                $listdanhmuc=loadall_danhmuc();
+                                include"danhmuc/list.php";
+                            break;                
             
 
 
