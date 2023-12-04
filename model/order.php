@@ -22,7 +22,7 @@ function loadone_order($id_order){
 
 function load_all_orders($user_id) {
     $sql = "SELECT * FROM tbl_order WHERE id_user = ?";
-    $orders = pdo_query($sql, $user_id);
+    $orders = pdo_query($sql, $user_id);    
     return $orders;
 }
 
