@@ -3,6 +3,8 @@
 include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
+include "../model/order.php";
+include "../model/taikhoan.php";
 include "header.php";
 
 if(isset($_GET['act'])&&($_GET['act']!="")){
@@ -147,7 +149,67 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                                 }
                                 $listdanhmuc=loadall_danhmuc();
                                 include"danhmuc/list.php";
-                            break;                
+                            break;      
+            case"listbill":
+                $listbill = loadall_bill(0);
+
+                include "bill/listbill.php";
+                break;   
+                case"xoabill":
+                    if(isset($_GET['idbill'])){
+                        xoabill($_GET['idbill']);
+                    }
+                    $listbill=loadall_bill(0);
+                    include"bill/listbill.php";
+                break;
+                case "suabill":
+                    if(isset($_GET['idbill'])&&($_GET['idbill']>0)){
+                        $bill=loadone_bill($_GET['idbill']);
+                    }
+                    include "bill/update.php";
+                    break;
+                    case "updatebill":
+                        if(isset($_POST['updatebill'])&&($_POST['updatebill'])){
+                            
+                            $id=$_POST['id'];
+                            $ttdh=$_POST['ttdh'];
+                            update_bill($id,$ttdh);
+                            
+                        }
+                        $listbill=loadall_bill(0);
+                        include "bill/listbill.php";
+                        break;
+                        case"listtaikhoan":
+                            $listtaikhoan = loadall_taikhoan();
+            
+                            include "taikhoan/listtaikhoan.php";
+                            break;
+                            case "suatk":
+                                if(isset($_GET['idtk'])&&($_GET['idtk']>0)){
+                                    $tk=loadone_taikhoan($_GET['idtk']);
+                                }
+                                include "taikhoan/update.php";
+                                break;
+                                case "updatetk":
+                                    if(isset($_POST['updatetk'])&&($_POST['updatetk'])){
+                                        
+                                        $id=$_POST['id'];
+                                        $role=$_POST['role'];
+                                        update_role_taikhoan($id,$role);
+                                        
+                                    }
+                                    $listtaikhoan=loadall_taikhoan();
+                                    include "taikhoan/listtaikhoan.php";
+                                    break;
+                                    case"xoatk":
+                                        if(isset($_GET['idtk'])){
+                                            delete_taikhoan($_GET['idtk']);
+                                        }
+                                        $listtaikhoan=loadall_taikhoan();
+                                        include "taikhoan/listtaikhoan.php";
+                                    break;
+
+
             
 
 

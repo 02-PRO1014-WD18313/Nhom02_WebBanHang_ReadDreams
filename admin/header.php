@@ -78,20 +78,20 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
+                            <a href="index.php?act=listsp" class="nav-item nav-link active">Sản phẩm</a>
                            
-                            <a href="shop.html" class="nav-item nav-link">Cửa hàng</a>
-                            <a href="detail.html" class="nav-item nav-link">Thông tin</a>
-                            <div class="nav-item dropdown">
+                            <a href="index.php?act=listbill" class="nav-item nav-link">Đơn hàng</a>
+                            <a href="index.php?act=listdanhmuc" class="nav-item nav-link">Danh mục</a>
+                            <!-- <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Giỏ hàng<i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
                                     <a href="cart.html" class="dropdown-item">Xem giỏ</a>
                                     <a href="checkout.html" class="dropdown-item">Thanh toán</a>
                                     
                                 </div>
-                            </div>
+                            </div> -->
                             
-                            <a href="index.php?act=thoat"  class="nav-item nav-link">Thoát</a>
+                            <a href="index.php?act=listtaikhoan"  class="nav-item nav-link">Tài khoản</a>
                         </div>
                         <!-- <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="" class="btn px-0">

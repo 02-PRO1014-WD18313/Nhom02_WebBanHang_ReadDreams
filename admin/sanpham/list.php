@@ -30,7 +30,7 @@
                         <th></th>
                         <th>MÃ SẢN PHẨM</th>
                         <th>TÊN SẢN PHẨM</th>
-                        <th>GIÁ NIÊM YẾT</th>
+                        <th>GIÁ NHẬP</th>
                         <th>GIÁ BÁN</th>
                         <th>HÌNH</th>
                         <th>SỐ LƯỢNG</th>
