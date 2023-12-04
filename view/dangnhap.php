@@ -30,7 +30,7 @@
 
             <?php if($role==1){ ?>
                 <li>
-                    <a href="admin/index.php">Đăng nhập Admin</a>
+                    <a href="admin/index.php?act=listsp">Đăng nhập Admin</a>
                 </li>
             <?php } ?>
 
@@ -51,7 +51,7 @@
                             </div>
                             <div class="row mb10">
                                 Mật khẩu <br>
-                                <input type="text" name="pass"> 
+                                <input type="password" name="pass"> 
                             </div>
                             <div class="row mb10">
                                 <input type="submit" value="Đăng nhập" name="dangnhap">
