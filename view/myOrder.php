@@ -31,10 +31,11 @@
                     $totalQuantity += $detail['soluong'];
                     $totalPrice += $detail['thanhtien'];
                 }
+                $ttdh = get_ttdh($order['trangthai']);
                 
                 echo "<td>" . $totalQuantity . "</td>";
                 echo "<td>" . $totalPrice . "</td>";
-                echo "<td>" . $order['trangthai'] . "</td>";
+                echo "<td>" . $ttdh . "</td>";
                 echo "</tr>";
             }
             ?>
