@@ -306,20 +306,19 @@
     
     <!-- <div class="container-fluid py-5"> -->
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">SẢN PHẨM LIÊN QUAN</span></h2>
-        <div class="row px-xl-5">
-            <div class="col">   
+         
                 <!-- <div class="owl-carousel related-carousel"> -->
-                    <div class="product-item bg-light">
+                    
                         <!-- <div class="product-img position-relative overflow-hidden"> -->
                             <!-- <img class="img-fluid w-100" src="upload/untitled-2_44.jpg" alt=""> -->
                         <?php 
                             foreach($sp_cung_loai as $sp_cung_loai){
                             extract($sp_cung_loai);
                             $linksp="index.php?act=sanphamct&idsp=".$id;
-                            echo'<li><a href="'.$linksp.'">'.$ten.'</a><li>';
+                            echo'<ul><li><a href="'.$linksp.'">'.$ten.'</a><li></ul>';
                             }
-                            $anh = $img_path.$anh;
-                            echo "<img src='$anh' class=".'w-50 h-50"'." width='50'><br>";                                           
+                            
+                                                              
                         ?> 
                             <!-- <div class="product-action">
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
@@ -327,7 +326,7 @@
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
                             </div>  -->
-                        </div>
+                      
                         <!-- <div class="text-center py-4">
                             <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
@@ -343,7 +342,7 @@
                             </div>
                             
                         </div> -->
-                    </div>
+          
                     <!-- <div class="product-item bg-light">
                         <div class="product-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="upload/image_217480.jpg" alt="">
@@ -417,8 +416,7 @@
                                 <small class="fa fa-star text-primary mr-1"></small>
                                 <small>(99)</small>
                             </div> -->
-                        </div>
-                    </div>
+                    
                     <!-- <div class="product-item bg-light">
                          <div class="product-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
