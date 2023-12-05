@@ -75,5 +75,6 @@
                 <td><b><?php echo number_format($_SESSION['resultTotal'], 0, ",", "."); ?> ₫</b></td>
             </tr>
         </table>
+        
     </div>
 </div>
