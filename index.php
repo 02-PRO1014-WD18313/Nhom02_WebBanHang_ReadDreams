@@ -108,6 +108,8 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                 if (isset($_SESSION['cart'])) {
                     $cart = $_SESSION['cart'];
                     // print_r($cart);
+                    if (isset($_SESSION['user'])){
+                        include "view/order.php";
                     if (isset($_POST['order_confirm'])) {
                         $txthoten = $_POST['txthoten'];
                         $txttel = $_POST['txttel'];
@@ -127,8 +129,11 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                                 unset($_SESSION['cart']);
                                 $_SESSION['success'] = $idBill;
                                 header("Location: index.php?act=success");
+                        }
+                            } else {
+                                include "view/unsuccessful.php";
                             }
-                        include "view/order.php";
+                        
                             } else {
                                 header("Location: index.php?act=listCart");
                             }

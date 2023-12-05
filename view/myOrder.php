@@ -14,7 +14,7 @@
             $orders = load_all_orders($_SESSION['user']['id']);
             foreach ($orders as $order) {
                 echo "<tr>";
-                echo "<td>" . $order['id_order'] . "</td>";
+                echo "<td>" . $order['id_order'] . "</td>"; 
                 // echo "<td>" . $order['ngaydathang'] . "</td>";
                 
                 // Thêm cột để hiển thị tên sản phẩm
