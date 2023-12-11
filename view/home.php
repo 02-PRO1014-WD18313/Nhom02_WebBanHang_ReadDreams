@@ -70,24 +70,38 @@
 <div class="boxleft">
         <div class="items">
         <?php
-              $i=0;
-                foreach ($spnew as $sp){
-                    extract($sp);
-                    $hinh =  $img_path.$anh;
-                    
-                    $linksp="index.php?act=sanphamct&idsp=".$id;
-                    
-                    echo '<div class="box_items ">
-                    <div class="box_items_img"> 
-                <img src="'.$hinh.'" alt="" style="height: 400px;width:100%;object-fit: cover;">
-             </div>
-              <a class="item_name" href="'. $linksp .'">'.$ten.'</a>
-              <p class="price">'.$gia_ban.' đ</p>
-              
-           </div>';
-                    $i+=1;
-                }
+                        $i=0;
+                        foreach ($spnew1 as $sp):
+                            extract($sp);
+                            $linksp="index.php?act=sanphamct&idsp=".$id;
+                            $hinh=$img_path.$anh;
+                            if(($i==2)||($i==5)||($i==8)){
+                                $mr="";
+                            } else {
+                                $mr="mr";
+                            }
+                            ?>
+                            <div class="box_items <?php echo $mr ?>">
+                    <div class="row img">
+                        <a href="<?php echo $linksp ?>" style="height: 400px;width:100%;object-fit: cover;"><img src="<?php echo $hinh ?>" alt="" style="height: 400px;width:100%;object-fit: cover;"></a>
+                    </div>
+                    <a href="<?php echo $linksp ?>">
+                        <b><?php echo $ten ?></b>
+                    </a>
+                    <p style="color: red;">
+                        <b><?php echo number_format($gia_ban) ?> ₫</b>
+                    </p>
+                    <div>
+                        <button data-id="<?= $id ?>" class="btnCart" onclick="addToCart(<?= $id ?>, '<?= $ten ?>', <?= $gia_ban ?>)">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <?php
+                        $i += 1;
+                    endforeach;
+               
+        
               ?>
+              
         </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

@@ -48,7 +48,7 @@ if(is_array($tk)){
                             <td>'.$tk['user'].'</td>
                             <td>'.$tk['email'].'</td>
                             <td>'.$tk['tel'].'</td>
-                            <td><input type="number" value="'.$tk['role'].'" name="role"></td>
+                            <td><input type="number" value="'.$tk['role'].'" name="role" min="0" max="1"></td>
                             <td>
                             <input type="hidden" name="id" value="'.$tk['id'].'">
                             <input class="mr20" name="updatetk" type="submit" value="Cập Nhật">
@@ -67,13 +67,30 @@ if(is_array($tk)){
                     
 
                 </table>
+                
             </div>
+
             <!-- <div class="row mb10 ">
                 <input class="mr20" type="button" value="CHỌN TẤT CẢ">
                 <input class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
                 <a href="index.php?act=addsp"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
             </div> -->
         </form>
+        <table border = "2" cellpadding="2"border-collapse:collapse>
+                    <tr>
+                        <th>Số</th>
+                        <th>Vai trò</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>User</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Admin</td>
+                    </tr>
+                    
+                </table>
     </div>
 </div>
 

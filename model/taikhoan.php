@@ -49,6 +49,19 @@ function get_role($n){
     }
     return $role;
 }
+function get_status($n){
+    switch ($n){
+        case '0':
+            $status ="Chưa mua";
+            break;
+        case '1':
+        $status ="Đã mua";
+        break;
+        
+
+    }
+    return $status;
+}
 
 function loadone_taikhoan($id){
     $sql = "select * from taikhoan where id=".$id;
@@ -67,8 +80,16 @@ function dangxuat() {
     }
 }
 
+function load_status_user($id_user){
+    $sql = "select status from taikhoan where id=".$id_user;
+    $result = pdo_query_one($sql);
+    return $result;
+}
+function set_status($id_user){
+    $sql="update taikhoan set status='1' where id=".$id_user;
+    pdo_execute($sql);
+}
 
-    
 
 
 

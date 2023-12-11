@@ -9,7 +9,7 @@ ob_start();
  include "model/danhmuc.php";
  include "model/taikhoan.php";
  include "model/order.php";
- 
+ include "model/binhluan.php";
 
 
  include "global.php";
@@ -19,15 +19,28 @@ include "view/header.php";
 
 $spnew = loadall_sanpham_home();
 $dsdm = loadall_danhmuc();
+$spnew1 = loadall_sanpham_home1();
 
 if(isset($_GET['act'])&&($_GET['act']!="")){
     $act=$_GET['act'];
     switch($act){
         case "sanphamct": 
+            if (isset($_SESSION['user'])){
+                $id_user = $_SESSION['user']['id'];
+                
+                $status_user=load_status_user($id_user);
+                
+                if(isset($_POST['guibinhluan']) && $status_user=='1'){
+                    insert_binhluan($id_user,$_POST['idpro'], $_POST['noidung']);
+                }
+            }
+
+            
             if (isset($_GET['idsp'])&&($_GET['idsp']>0)){
                 // $id=$_GET['idsp'];
                 $onesp=loadone_sanpham($_GET['idsp']);
                 $sp_cung_loai = loadone_sanpham_cungloai($_GET['idsp'], $onesp['id_danh_muc']);
+                $binhluan = loadall_binhluan($_GET['idsp']);
                 // $onesp=loadone_sanpham($id);
                 // $iddm=$spchitiet['iddm'];
                 // $splienquan=load_sanpham_lienquan($iddm,$id,4);
@@ -51,7 +64,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
             } else {
                 $iddm=0;    
             }
-            $dssp=loadall_sanpham($kyw, $iddm);
+            $dssp=loadall_sanpham($kyw,$iddm);
             $tendm = load_ten_dm($iddm);
             include "view/sanpham.php";
             break;
@@ -107,7 +120,12 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                 session_unset();
                 header('Location: index.php');
                 break;
+            case "onlineCheckout":
+                if(isset($_GET['thanhtoan'])){
 
+                }
+                include "view/thanhtoanmomo.php";
+                break;
                     
             case "listCart":
                 // Kiểm tra xem giỏ hàng có dữ liệu hay không

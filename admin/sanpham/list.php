@@ -5,6 +5,11 @@
   
 }
 </style>
+<div class="row mb10 ">
+                <input class="mr20" type="button" value="CHỌN TẤT CẢ">
+                <input class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
+                <a href="index.php?act=addsp"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
+            </div>
 <div class="row2">
     <div class="row2 font_title">
         <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
@@ -12,19 +17,7 @@
     <div class="row2 form_content ">
         <form action="#" method="POST">
             <div class="row2 mb10 formds_loai">
-                <form action="index.php?act=listsp" method="post">
-                   
-                    <select name="iddm" id="">
-                        <option value="0" selected>Tất cả</option>
-                        <?php
-                        foreach ($listdanhmuc as $danhmuc) {
-                            extract($danhmuc);
-                            echo '<option value="' . $id . '">' . $ten . '</option>';
-                        }
-                        ?>
-                    </select>
-                    <input type="submit" name="clickOK" value="GO">
-                </form>
+                
                 <table>
                     <tr>
                         <th></th>
