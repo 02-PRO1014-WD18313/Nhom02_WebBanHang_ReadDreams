@@ -70,7 +70,11 @@ function loadone_sanphamCart ($idList) {
     $sanpham = pdo_query($sql);
     return $sanpham;
 }
-
+function loadall_sanpham_home1(){
+    $sql="select * from sanpham where 1 order by id asc limit 0,8";
+    $listsanpham=pdo_query($sql);
+    return  $listsanpham;
+}
 
 ?>
 
