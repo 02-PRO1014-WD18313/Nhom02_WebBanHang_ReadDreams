@@ -27,7 +27,7 @@
                                 <input type="password" name="pass">
                             </div>
                             <div class="row mb10">
-                                Tel
+                                Số điện thoại
                                 <input type="tel" name="tel">
                             </div>
                             <div class="row mb10">

@@ -50,11 +50,12 @@
                   // Tính tổng tiền hàng và hiển thị nó
                   $totalOrderPrice = 0;
                   foreach ($orders as $order) {
-                      $totalOrderPrice += $order['tongtien'];
+                      $totalOrderPrice += $order['tongtien'] ;
                   }
-                  echo $totalOrderPrice;
+                  echo $totalOrderPrice ; 
                   ?>
-                  </h4>
+                  <u>đ</u>
+                  </h4> 
               </td>
           </tr>
         </table>
