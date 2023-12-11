@@ -23,10 +23,9 @@
                             <li>
                                 <a href="index.php?act=quenmk">Quên mật khẩu</a>
                             </li>
-                            <!-- Bạn có thể bỏ comment nếu muốn hiển thị link cập nhật tài khoản -->
-                            <!-- <li>
+                            <li>
                                 <a href="index.php?act=edit_taikhoan">Cập nhật tài khoản</a>
-                            </li> -->
+                            </li>
 
             <?php if($role==1){ ?>
                 <li>
@@ -61,7 +60,7 @@
                                 <a href="index.php?act=quenmk">Quên mật khẩu</a>
                             </li>
                             <li>
-                                <a href="index.php?act=dangky">Đăng ký thành viên</a>
+                                <a href="index.php?act=dangky">Đăng ký tài khoản</a>
                             </li>
 
             <?php

@@ -9,6 +9,12 @@
       return $sp;
   }
 
+  function check($user){
+    $sql="select pass from taikhoan where user='".$user."'"; 
+    $sp = pdo_query_one($sql);
+    return $sp;
+}
+
   function checkemail($email){
       $sql="select * from taikhoan where email='".$email."'"; 
       $sp = pdo_query_one($sql);
@@ -73,6 +79,7 @@ function dangxuat() {
         unset($_SESSION['user']);
     }
 }
+
 function load_status_user($id_user){
     $sql = "select status from taikhoan where id=".$id_user;
     $result = pdo_query_one($sql);
@@ -82,6 +89,7 @@ function set_status($id_user){
     $sql="update taikhoan set status='1' where id=".$id_user;
     pdo_execute($sql);
 }
+
 
 
 

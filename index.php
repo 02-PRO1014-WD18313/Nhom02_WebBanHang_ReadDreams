@@ -97,6 +97,25 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                 include "view/dangnhap.php";
                 break;
 
+            case 'edit_taikhoan':
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $user=$_POST['user'];
+                    $pass=$_POST['pass'];
+                    $password=$_POST['password'];
+                    $email=$_POST['email'];
+                    $tel=$_POST['tel'];
+                    $id=$_POST['id'];
+                    $check=check($user=$_POST['user']);
+                    if($check=$pass){
+                        update_taikhoan($id, $user, $password, $email, $tel);
+                    }
+                    //cập nhập lại session 
+                    $_SESSION['user']=checkuser($user, $password);
+                    header('Location: index.php?act=edit_taikhoan');   
+                }
+                include "view/edit_taikhoan.php";
+                break;
+
             case 'thoat':
                 session_unset();
                 header('Location: index.php');
