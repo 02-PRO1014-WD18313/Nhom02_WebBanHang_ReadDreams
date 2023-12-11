@@ -35,7 +35,7 @@ function load_order_details($id_order){
 function loadall_bill($user_id) {
     $sql = "SELECT * FROM tbl_order WHERE 1";
     if($user_id > 0) $sql .= " and user_id=".$user_id;
-    $sql .= " order by id_user desc";
+    $sql .= " order by id_order desc";
     $listbill = pdo_query($sql);
     return $listbill;
 
