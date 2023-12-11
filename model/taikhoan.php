@@ -9,6 +9,12 @@
       return $sp;
   }
 
+  function check($user){
+    $sql="select pass from taikhoan where user='".$user."'"; 
+    $sp = pdo_query_one($sql);
+    return $sp;
+}
+
   function checkemail($email){
       $sql="select * from taikhoan where email='".$email."'"; 
       $sp = pdo_query_one($sql);
@@ -60,6 +66,8 @@ function dangxuat() {
         unset($_SESSION['user']);
     }
 }
+
+
     
 
 
