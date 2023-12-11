@@ -40,10 +40,11 @@ if(is_array($bill)){
                             <td>ĐƠN SỐ-'.$bill['id_order'].'</td>
                             <td>'.$kh.'</td>
                             <td>'.$bill['tongtien'].'</td>
-                            <td><input type="number" value="'.$bill['trangthai'].'" name="ttdh"></td>
+                            <td><input type="number" value="'.$bill['trangthai'].'" name="ttdh" min="0" max="3"></td>
                             <td>
                             <input type="hidden" name="id" value="'.$bill['id_order'].'">
                             <input class="mr20" name="updatebill" type="submit" value="Cập Nhật">
+                            
                             </td>
                             
                             
@@ -52,11 +53,40 @@ if(is_array($bill)){
                             
                             ';
                             
+                            if(intval($bill['trangthai'])==3)
+                            {
+                                set_status($id_user);
+                            }
+                            
 
 
                     ?>
+                    
 
                     
+
+                </table>
+                <table border = "2" cellpadding="2"border-collapse:collapse >
+                    <tr>
+                        <th>Số</th>
+                        <th>Tình trạng</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>Đơn hàng mới</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Đang xử lí</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Đang giao hàng</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Đã giao hàng</td>
+                    </tr>
 
                 </table>
         
