@@ -45,8 +45,8 @@
             <div><input type="text" name="txtaddress" id="" placeholder="Địa chỉ" required></div>
             <h3 class="pttt">Phương thức thanh toán</h3>
             <p><input type="radio" name="pttt" id="" value="1" required> Thanh toán khi giao hàng</p>
-            <p><input type="radio" name="pttt" id="" value="2" required> Chuyển khoản ngân hàng</p>
-            <input type="submit" value="Xác nhận đặt hàng" name="order_confirm">
+            <p><input type="radio" name="pttt" id="cknh" value="2" required> Chuyển khoản ngân hàng</p>
+            <input  type="submit" value="Xác nhận đặt hàng" name="order_confirm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')">
         </form>
     </div>
     <div class="sub-order">
@@ -78,3 +78,10 @@
         
     </div>
 </div>
+<script>
+    document.getElementById('cknh').addEventListener('click', function(){
+        window.location = window.location.href.replace("index.php?act=order","index.php?act=onlineCheckout&thanhtoan=payUrl");
+        console.log(window.location.href);
+    });
+            
+</script>

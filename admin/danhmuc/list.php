@@ -2,7 +2,7 @@
 $dsdm = loadall_danhmuc();
 if(isset($thongbao) && ($thongbao!="")) echo $thongbao;
 ?>
-
+<a href="index.php?act=adddanhmuc"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
 <table>
                     <tr>
                         <th>ID</th>
@@ -36,5 +36,5 @@ if(isset($thongbao) && ($thongbao!="")) echo $thongbao;
 
 </table>
 <div class="row mb10 ">
-                <a href="index.php?act=adddanhmuc"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
+                
             </div>
